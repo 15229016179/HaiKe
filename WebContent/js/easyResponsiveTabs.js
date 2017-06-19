@@ -8,7 +8,7 @@
                 type: 'default', //default, vertical, accordion;
                 width: 'auto',
                 fit: true
-            }
+            };
             //Variables
             var options = $.extend(defaults, options);            
             var opt = options, jtype = opt.type, jfit = opt.fit, jwidth = opt.width, vtabs = 'vertical', accord = 'accordion';
