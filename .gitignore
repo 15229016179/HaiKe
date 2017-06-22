@@ -3,5 +3,5 @@ build/
 
 .settings/
 
-.classpath
-.project
+*.classpath
+*.project
