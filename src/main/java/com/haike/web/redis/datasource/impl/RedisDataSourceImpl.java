@@ -35,15 +35,15 @@ public class RedisDataSourceImpl implements RedisDataSource {
 	        shardedJedisPool.returnResource(shardedJedis);
 	    }
 	    /**
-	     * false:ÀûÓÃÁ¬½Ó³Ø;true:Ïú»ÙÁ¬½Ó³Ø
+	     * false:åˆ©ç”¨è¿æ¥æ± ;true:é”€æ¯è¿æ¥æ± 
 	     */
 	    @Override
 	    public void returnResource(ShardedJedis shardedJedis, boolean broken) {
 	        if (broken) {
-	        	 // Ïú»Ù¶ÔÏó  
+	        	 // é”€æ¯å¯¹è±¡  
 	            shardedJedisPool.returnBrokenResource(shardedJedis);
 	        } else {
-	        	// »¹»áµ½Á¬½Ó³Ø
+	        	// è¿˜ä¼šåˆ°è¿æ¥æ± 
 	            shardedJedisPool.returnResource(shardedJedis);
 	        }
 	    }

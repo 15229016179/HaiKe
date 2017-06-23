@@ -6,9 +6,9 @@ import redis.clients.jedis.ShardedJedis;
 /**
  * 
  * @ClassName: RedisDataSource
- * @Description: TODO(redis½Ó¿Ú)
+ * @Description: TODO(redisæ¥å£)
  * @author xiaoming
- * @date 2016Äê5ÔÂ25ÈÕ ÏÂÎç3:10:57
+ * @date 2016å¹´5æœˆ25æ—¥ ä¸‹åˆ3:10:57
  *
  */
 public interface RedisDataSource {
@@ -17,20 +17,20 @@ public interface RedisDataSource {
 	/**
 	 * 
 	* @Title: returnResource 
-	* @Description: TODO(»¹»áµ½Á¬½Ó³Ø) 
-	* @param @param shardedJedis    Éè¶¨ÎÄ¼ş 
-	* @return void    ·µ»ØÀàĞÍ 
+	* @Description: TODO(è¿˜ä¼šåˆ°è¿æ¥æ± ) 
+	* @param @param shardedJedis    è®¾å®šæ–‡ä»¶ 
+	* @return void    è¿”å›ç±»å‹ 
 	* @throws
 	 */
 	public void returnResource(ShardedJedis shardedJedis);
 
 	/**
-	 * false:ÀûÓÃÁ¬½Ó³Ø;true:Ïú»ÙÁ¬½Ó³Ø
+	 * false:åˆ©ç”¨è¿æ¥æ± ;true:é”€æ¯è¿æ¥æ± 
 	* @Title: returnResource 
-	* @Description: TODO(false:ÀûÓÃÁ¬½Ó³Ø;true:Ïú»ÙÁ¬½Ó³Ø) 
+	* @Description: TODO(false:åˆ©ç”¨è¿æ¥æ± ;true:é”€æ¯è¿æ¥æ± ) 
 	* @param @param shardedJedis
-	* @param @param broken    Éè¶¨ÎÄ¼ş 
-	* @return void    ·µ»ØÀàĞÍ 
+	* @param @param broken    è®¾å®šæ–‡ä»¶ 
+	* @return void    è¿”å›ç±»å‹ 
 	* @throws
 	 */
 	public void returnResource(ShardedJedis shardedJedis, boolean broken);

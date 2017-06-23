@@ -53,14 +53,14 @@ public class UserControl extends HttpServlet {
 		Connection conn = connectionFactory.getConnection();
 		try {
 			if(userService.checkUser(conn, user)){
-				System.out.println("userServlet.doPost()"+"µÇÂ½³É¹¦");
+				System.out.println("userServlet.doPost()"+"ç™»é™†æˆåŠŸ");
 				RequestDispatcher rd = req.getRequestDispatcher("/login/welcome.jsp");
 				req.setAttribute("userName", userName);
 				req.setAttribute("passWord", passWord);
 				req.setAttribute("login", "1");
 				rd.forward(req, resp);
 			}else{
-				System.out.println("userServlet.doPost()"+"µÇÂ½Ê§°Ü");
+				System.out.println("userServlet.doPost()"+"ç™»é™†å¤±è´¥");
 				RequestDispatcher rd = req.getRequestDispatcher("/login/welcome.jsp");
 				req.setAttribute("userName", userName);
 				req.setAttribute("passWord", passWord);

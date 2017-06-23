@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.haike.web.entity.Config;
 
 /**
- * ÍøÕ¾ÅäÖÃ
+ * ç½‘ç«™é…ç½®
  * 
  * @author xiaoming
  * 
@@ -22,44 +22,44 @@ import com.haike.web.entity.Config;
 public interface ConfigDao {
 
 	// ///////////////////////////////
-	// ///// Ôö¼Ó ////////
+	// ///// å¢åŠ  ////////
 	// ///////////////////////////////
 
 	/**
-	 * Ôö¼ÓÅäÖÃ
+	 * å¢åŠ é…ç½®
 	 * 
 	 * @return Integer
 	 */
 	public int addConfig(Config config);
 
 	// ///////////////////////////////
-	// ///// „h³ı ////////
+	// ///// åˆªé™¤ ////////
 	// ///////////////////////////////
 
 	/**
-	 * É¾³ıÅäÖÃ
+	 * åˆ é™¤é…ç½®
 	 * 
 	 * return Integer
 	 */
 	public int deleteConfig(@Param("key") String key);
 
 	// ///////////////////////////////
-	// ///// ĞŞ¸Ä ////////
+	// ///// ä¿®æ”¹ ////////
 	// ///////////////////////////////
 
 	/**
-	 * ¸üĞÂÅäÖÃ
+	 * æ›´æ–°é…ç½®
 	 * 
 	 * @return Integer
 	 */
 	public int updateConfig(Config config);
 
 	// ///////////////////////////////
-	// ///// ²éÔƒ ////////
+	// ///// æŸ¥è©¢ ////////
 	// ///////////////////////////////
 
 	/**
-	 * ²é¿´ÅäÖÃ
+	 * æŸ¥çœ‹é…ç½®
 	 * 
 	 * @return Config
 	 */

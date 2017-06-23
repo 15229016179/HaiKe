@@ -35,7 +35,7 @@ public class RedisClientTemplate {
 	}
 
 	/**
-	 * ÉèÖÃµ¥¸öÖµ
+	 * è®¾ç½®å•ä¸ªå€¼
 	 * 
 	 * @param key
 	 * @param value
@@ -61,7 +61,7 @@ public class RedisClientTemplate {
 	}
 
 	/**
-	 * »ñÈ¡µ¥¸öÖµ
+	 * è·å–å•ä¸ªå€¼
 	 * 
 	 * @param key
 	 * @return
@@ -89,10 +89,10 @@ public class RedisClientTemplate {
 	/**
 	 * 
 	 * @Title: exists
-	 * @Description: TODO(ÅĞ¶ÏÊÇ·ñ´æÔÚÄ³¸ökey)
+	 * @Description: TODO(åˆ¤æ–­æ˜¯å¦å­˜åœ¨æŸä¸ªkey)
 	 * @param @param key
-	 * @param @return Éè¶¨ÎÄ¼ş
-	 * @return Boolean ·µ»ØÀàĞÍ
+	 * @param @return è®¾å®šæ–‡ä»¶
+	 * @return Boolean è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public Boolean exists(String key) {
@@ -133,7 +133,7 @@ public class RedisClientTemplate {
 	}
 
 	/**
-	 * Îª¸ø¶¨keyÉèÖÃÉú´æÊ±¼ä¡£µ±key¹ıÆÚÊ±£¬Ëü»á±»×Ô¶¯É¾³ı¡£ µ¥Î»Ãë(s)
+	 * ä¸ºç»™å®škeyè®¾ç½®ç”Ÿå­˜æ—¶é—´ã€‚å½“keyè¿‡æœŸæ—¶ï¼Œå®ƒä¼šè¢«è‡ªåŠ¨åˆ é™¤ã€‚ å•ä½ç§’(s)
 	 * 
 	 * @param key
 	 * @param unixTime
@@ -159,7 +159,7 @@ public class RedisClientTemplate {
 	}
 
 	/**
-	 * ÔÚÄ³¸öÊ±¼äµãÊ§Ğ§
+	 * åœ¨æŸä¸ªæ—¶é—´ç‚¹å¤±æ•ˆ
 	 * 
 	 * @param key
 	 * @param unixTime
@@ -187,10 +187,10 @@ public class RedisClientTemplate {
 	/**
 	 * 
 	 * @Title: ttl
-	 * @Description: TODO(·µ»Ø¸ø¶¨keyµÄÊ£ÓàÉú´æÊ±¼ä(time to live)(ÒÔÃëÎªµ¥Î»)¡£)
+	 * @Description: TODO(è¿”å›ç»™å®škeyçš„å‰©ä½™ç”Ÿå­˜æ—¶é—´(time to live)(ä»¥ç§’ä¸ºå•ä½)ã€‚)
 	 * @param @param key
-	 * @param @return Éè¶¨ÎÄ¼ş
-	 * @return Long ·µ»ØÀàĞÍ
+	 * @param @return è®¾å®šæ–‡ä»¶
+	 * @return Long è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public Long ttl(String key) {
@@ -215,15 +215,15 @@ public class RedisClientTemplate {
 	/**
 	 * 
 	 * @Title: setbit
-	 * @Description: TODO(¶ÔkeyËù´¢´æµÄ×Ö·û´®Öµ£¬ÉèÖÃ»òÇå³ıÖ¸¶¨Æ«ÒÆÁ¿ÉÏµÄÎ»(bit)¡£
-	 *               Î»µÄÉèÖÃ»òÇå³ıÈ¡¾öÓÚvalue²ÎÊı£¬¿ÉÒÔÊÇ0Ò²¿ÉÒÔÊÇ1¡£ µ±key²»´æÔÚÊ±£¬×Ô¶¯Éú³ÉÒ»¸öĞÂµÄ×Ö·û´®Öµ¡£
-	 *               ×Ö·û´®»áÔö³¤(grown)ÒÔÈ·±£Ëü¿ÉÒÔ½«value±£´æÔÚÖ¸¶¨µÄÆ«ÒÆÁ¿ÉÏ¡£ µ±×Ö·û´®ÖµÔö³¤Ê±£¬¿Õ°×Î»ÖÃÒÔ0Ìî³ä¡£
-	 *               offset²ÎÊı±ØĞë´óÓÚ»òµÈÓÚ0£¬Ğ¡ÓÚ2^32(bitÓ³Éä±»ÏŞÖÆÔÚ512MBÄÚ)¡£ )
+	 * @Description: TODO(å¯¹keyæ‰€å‚¨å­˜çš„å­—ç¬¦ä¸²å€¼ï¼Œè®¾ç½®æˆ–æ¸…é™¤æŒ‡å®šåç§»é‡ä¸Šçš„ä½(bit)ã€‚
+	 *               ä½çš„è®¾ç½®æˆ–æ¸…é™¤å–å†³äºvalueå‚æ•°ï¼Œå¯ä»¥æ˜¯0ä¹Ÿå¯ä»¥æ˜¯1ã€‚ å½“keyä¸å­˜åœ¨æ—¶ï¼Œè‡ªåŠ¨ç”Ÿæˆä¸€ä¸ªæ–°çš„å­—ç¬¦ä¸²å€¼ã€‚
+	 *               å­—ç¬¦ä¸²ä¼šå¢é•¿(grown)ä»¥ç¡®ä¿å®ƒå¯ä»¥å°†valueä¿å­˜åœ¨æŒ‡å®šçš„åç§»é‡ä¸Šã€‚ å½“å­—ç¬¦ä¸²å€¼å¢é•¿æ—¶ï¼Œç©ºç™½ä½ç½®ä»¥0å¡«å……ã€‚
+	 *               offsetå‚æ•°å¿…é¡»å¤§äºæˆ–ç­‰äº0ï¼Œå°äº2^32(bitæ˜ å°„è¢«é™åˆ¶åœ¨512MBå†…)ã€‚ )
 	 * @param @param key
 	 * @param @param offset
 	 * @param @param value
-	 * @param @return Éè¶¨ÎÄ¼ş
-	 * @return boolean ·µ»ØÀàĞÍ
+	 * @param @return è®¾å®šæ–‡ä»¶
+	 * @return boolean è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public boolean setbit(String key, long offset, boolean value) {
@@ -340,12 +340,12 @@ public class RedisClientTemplate {
 	/**
 	 * 
 	 * @Title: setex
-	 * @Description: TODO(½«Öµvalue¹ØÁªµ½key£¬²¢½«keyµÄÉú´æÊ±¼äÉèÎªseconds(ÒÔÃëÎªµ¥Î»))
+	 * @Description: TODO(å°†å€¼valueå…³è”åˆ°keyï¼Œå¹¶å°†keyçš„ç”Ÿå­˜æ—¶é—´è®¾ä¸ºseconds(ä»¥ç§’ä¸ºå•ä½))
 	 * @param @param key
 	 * @param @param seconds
 	 * @param @param value
-	 * @param @return Éè¶¨ÎÄ¼ş
-	 * @return String ·µ»ØÀàĞÍ
+	 * @param @return è®¾å®šæ–‡ä»¶
+	 * @return String è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public String setex(String key, int seconds, String value) {
@@ -727,7 +727,7 @@ public class RedisClientTemplate {
 		return result;
 	}
 
-	// ================list ====== l±íÊ¾ list»ò left, r±íÊ¾right====================
+	// ================list ====== lè¡¨ç¤º listæˆ– left, rè¡¨ç¤ºright====================
 	public Long rpush(String key, String string) {
 		Long result = null;
 		ShardedJedis shardedJedis = redisDataSource.getRedisClient();

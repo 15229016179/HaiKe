@@ -3,7 +3,7 @@ package com.haike.web.entity;
 import java.util.Date;
 
 /**
- * ÍøÕ¾ÅäÖÃÊµÌå
+ * ç½‘ç«™é…ç½®å®ä½“
  * 
  * @author xiaoming
  * 
@@ -17,16 +17,16 @@ public class Config {
 	private String key;
 
 	/**
-	 * Öµ
+	 * å€¼
 	 */
 	private String value;
 	/**
-	 * ÃèÊö
+	 * æè¿°
 	 */
 	private String description;
 
 	/**
-	 * Ê±¼ä
+	 * æ—¶é—´
 	 */
 	private Date createTime;
 

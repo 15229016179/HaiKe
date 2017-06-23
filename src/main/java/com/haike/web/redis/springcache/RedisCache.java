@@ -19,11 +19,11 @@ public class RedisCache implements Cache {
 
 	private RedisTemplate<String, Object> redisTemplate;
 	/**
-	 * cache的value(eg:@Cacheable(value="commonCache"))
+	 * cache鐨剉alue(eg:@Cacheable(value="commonCache"))
 	 */
 	private String name;
 	/**
-	 * 存活时间(如果为空,则为长期有效)
+	 * 瀛樻椿鏃堕棿(濡傛灉涓虹┖,鍒欎负闀挎湡鏈夋晥)
 	 */
 	private Long liveTime;
 	
@@ -93,9 +93,9 @@ public class RedisCache implements Cache {
 	}
 
 	/**
-	 * 描述 : <Object转byte[]>. <br>
+	 * 鎻忚堪 : <Object杞琤yte[]>. <br>
 	 * <p>
-	 * <使用方法说明>
+	 * <浣跨敤鏂规硶璇存槑>
 	 * </p>
 	 * 
 	 * @param obj
@@ -118,9 +118,9 @@ public class RedisCache implements Cache {
 	}
 
 	/**
-	 * 描述 : <byte[]转Object>. <br>
+	 * 鎻忚堪 : <byte[]杞琌bject>. <br>
 	 * <p>
-	 * <使用方法说明>
+	 * <浣跨敤鏂规硶璇存槑>
 	 * </p>
 	 * 
 	 * @param bytes

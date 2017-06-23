@@ -12,7 +12,7 @@ import com.haike.web.dao.datasource_.ConfigDao_;
 import com.haike.web.entity.Config;
 
 /**
- * ÍøÕ¾ÅäÖÃ
+ * ç½‘ç«™é…ç½®
  * 
  * @author xiaoming
  * 
@@ -26,11 +26,11 @@ public class ConfigService {
 	private ConfigDao_ configDao_;
 
 	// ///////////////////////////////
-	// ///// Ôö¼Ó ////////
+	// ///// å¢åŠ  ////////
 	// ///////////////////////////////
 
 	/**
-	 * Ôö¼ÓÅäÖÃ
+	 * å¢åŠ é…ç½®
 	 * 
 	 * @param key
 	 * @param value
@@ -46,11 +46,11 @@ public class ConfigService {
 	}
 
 	// ///////////////////////////////
-	// ///// „h³ı ////////
+	// ///// åˆªé™¤ ////////
 	// ///////////////////////////////
 
 	/**
-	 * É¾³ıÅäÖÃ
+	 * åˆ é™¤é…ç½®
 	 * 
 	 * @param key
 	 * @return Integer
@@ -60,11 +60,11 @@ public class ConfigService {
 	}
 
 	// ///////////////////////////////
-	// ///// ĞŞ¸Ä ////////
+	// ///// ä¿®æ”¹ ////////
 	// ///////////////////////////////
 
 	/**
-	 * ¸üĞÂÅäÖÃ
+	 * æ›´æ–°é…ç½®
 	 * 
 	 * @param key
 	 * @param value
