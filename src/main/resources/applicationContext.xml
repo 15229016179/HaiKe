@@ -34,7 +34,7 @@
 
 	<!-- mysql数据源 -->
 	<!-- 设置数据源属性 -->
-	<bean id="dataSource1" class="com.atomikos.jdbc.AtomikosDataSourceBean"
+	<bean id="dataSource" class="com.atomikos.jdbc.AtomikosDataSourceBean"
 		init-method="init" destroy-method="close">
 		<property name="uniqueResourceName" value="read_resource" />
 		<property name="xaDataSourceClassName" value="com.alibaba.druid.pool.xa.DruidXADataSource" />
@@ -50,11 +50,11 @@
 	</bean>
 
 	<bean id="jdbcTemplateRead" class="org.springframework.jdbc.core.JdbcTemplate">
-		<property name="dataSource" ref="dataSource1" />
+		<property name="dataSource" ref="dataSource" />
 	</bean>
 
 	<!-- 设置数据源属性 -->
-	<bean id="dataSource2" class="com.atomikos.jdbc.AtomikosDataSourceBean"
+	<bean id="dataSource_" class="com.atomikos.jdbc.AtomikosDataSourceBean"
 		init-method="init" destroy-method="close">
 		<property name="uniqueResourceName" value="write_resource" />
 		<property name="xaDataSourceClassName" value="com.alibaba.druid.pool.xa.DruidXADataSource" />
