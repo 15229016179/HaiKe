@@ -258,7 +258,6 @@
 	</dependencies>
 	<build>
 		<finalName>HaiKe</finalName>
-		<sourceDirectory>src/mian/java</sourceDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
