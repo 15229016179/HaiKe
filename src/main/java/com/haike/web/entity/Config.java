@@ -8,7 +8,6 @@ import java.util.Date;
  * @author xiaoming
  * 
  */
-
 public class Config {
 
 	/**

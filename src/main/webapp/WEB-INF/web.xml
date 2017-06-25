@@ -77,18 +77,24 @@
 	<listener>
 		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
-
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 	<listener>
 		<listener-class>org.springframework.web.util.WebAppRootListener</listener-class>
 	</listener>
+	<context-param>  
+        <param-name>contextConfigLocation</param-name>  
+        <param-value>/WEB-INF/classes/applicationContext.xml</param-value>  
+    </context-param>  
 	<context-param>
 		<param-name>webAppRootKey</param-name>
-		<param-value>HaiKe.root</param-value>
+		<param-value>haike.root</param-value>
 	</context-param>
 	<session-config>
 		<session-timeout>20</session-timeout>
 	</session-config>
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
+		<welcome-file></welcome-file>
 	</welcome-file-list>
 </web-app>

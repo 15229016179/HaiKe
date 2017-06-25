@@ -19,14 +19,14 @@
 	         http://www.springframework.org/schema/context/spring-context.xsd
 	         http://www.springframework.org/schema/cache
 	         http://www.springframework.org/schema/cache/spring-cache.xsd
-	         http://www.springframework.org/schema/task 
-	         http://www.springframework.org/schema/task/spring-task.xsd">
+	         http://www.springframework.org/schema/task	
+	         http://www.springframework.org/schema/task/spring-task.xsd ">
 
 	<context:property-placeholder location="classpath*:/dbconfig.properties"
 		ignore-resource-not-found="true" ignore-unresolvable="true" />
-	<import resource="redis.xml"/>
+	<import resource="redis.xml" />
 	<!-- 自动扫描的包名 -->
-	<context:component-scan base-package="com.haike.web"></context:component-scan>
+	<context:component-scan base-package="com.haike.web" />
 
 	<mvc:default-servlet-handler />
 
@@ -93,8 +93,6 @@
 		<property name="allowCustomIsolationLevels" value="true" />
 	</bean>
 
-
-
 	<!-- 配置事务传播特性 -->
 	<tx:advice id="transactionAdvice" transaction-manager="jtaTransactionManager">
 		<tx:attributes>
@@ -110,7 +108,8 @@
 
 	<!-- 配置相关类的方法参与事务 -->
 	<aop:config>
-		<aop:advisor pointcut="execution(* com.haike.web.service..*.*(..))" advice-ref="transactionAdvice" />
+		<aop:advisor pointcut="execution(* com.haike.web.service..*.*(..))"
+			advice-ref="transactionAdvice" />
 	</aop:config>
 
 	<!-- 使用注解方式定义事务 -->
@@ -138,4 +137,5 @@
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory_" />
 		<property name="basePackage" value="com.haike.web.dao.datasource_" />
 	</bean>
+
 </beans>

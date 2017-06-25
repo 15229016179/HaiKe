@@ -19,7 +19,7 @@ $(function () {
         });
     });
 
-    <!-- start-smoth-scrolling -->
+    // start-smoth-scrolling
     jQuery(document).ready(function ($) {
         $(".scroll").click(function (event) {
             event.preventDefault();

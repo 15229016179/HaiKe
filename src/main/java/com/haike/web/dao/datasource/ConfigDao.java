@@ -17,7 +17,6 @@ import com.haike.web.entity.Config;
  * @author xiaoming
  * 
  */
-
 @Repository
 public interface ConfigDao {
 
