@@ -28,26 +28,22 @@
 					<constructor-arg name="host" value="${redis.host}" />
 					<constructor-arg name="port" value="${redis.port}" />
 					<constructor-arg name="timeout" value="${redis.timeout}" />
-					<constructor-arg name="weight" value="1" />
 				</bean>
 			</list>
 		</constructor-arg>
 	</bean>
 
 	<!-- spring自己的换管理器，这里定义了两个缓存位置名称 ，既注解中的value -->
-	<bean id="connectionFactory"
-		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
-		p:host-name="${redis.host}" p:port="${redis.port}" p:pool-config-ref="jedisPoolConfig"
-		p:database="0" />
+	<bean id="jedisConnFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+		p:use-pool="true" />
 
-	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
-		<property name="connectionFactory" ref="connectionFactory" />
+	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
+		p:connection-factory-ref="jedisConnFactory">
 	</bean>
 	<bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
 		<property name="caches">
 			<set>
 				<bean class="com.haike.web.redis.springcache.RedisCache">
-					<property name="redisTemplate" ref="redisTemplate" />
 					<property name="name" value="default" />
 					<property name="liveTime" value="86400" />
 				</bean>

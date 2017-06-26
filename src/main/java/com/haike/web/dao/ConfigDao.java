@@ -4,9 +4,9 @@
 
  */
 
-package com.haike.web.dao.datasource_;
+package com.haike.web.dao;
 
-import org.apache.ibatis.annotations.Param;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.haike.web.entity.Config;
@@ -17,9 +17,8 @@ import com.haike.web.entity.Config;
  * @author xiaoming
  * 
  */
-
-@Repository("configdao_")
-public interface ConfigDao_ {
+@Repository
+public interface ConfigDao {
 
 	// ///////////////////////////////
 	// ///// 增加 ////////

@@ -22,7 +22,7 @@
 	         http://www.springframework.org/schema/task	
 	         http://www.springframework.org/schema/task/spring-task.xsd ">
 
-	<context:property-placeholder location="classpath*:/dbconfig.properties"
+	<context:property-placeholder location="classpath:/dbconfig.properties"
 		ignore-resource-not-found="true" ignore-unresolvable="true" />
 	<import resource="redis.xml" />
 	<!-- 自动扫描的包名 -->
@@ -33,45 +33,26 @@
 	<task:annotation-driven />
 
 	<!-- mysql数据源 -->
-	<!-- 设置数据源属性 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driverClass}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	<!-- 设置数据源属性 
 	<bean id="dataSource" class="com.atomikos.jdbc.AtomikosDataSourceBean"
 		init-method="init" destroy-method="close">
-		<property name="uniqueResourceName" value="read_resource" />
+		<property name="uniqueResourceName" value="haike_data" />
 		<property name="xaDataSourceClassName" value="com.alibaba.druid.pool.xa.DruidXADataSource" />
 		<property name="xaProperties">
 			<props>
 				<prop key="url">${jdbc.url}</prop>
 				<prop key="username">${jdbc.username}</prop>
 				<prop key="password">${jdbc.password}</prop>
-				<!-- 初始化时建立物理连接的个数 -->
-				<prop key="initialSize">${jdbc.initialSize}</prop>
 			</props>
 		</property>
 	</bean>
-
-	<bean id="jdbcTemplateRead" class="org.springframework.jdbc.core.JdbcTemplate">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-
-	<!-- 设置数据源属性 -->
-	<bean id="dataSource_" class="com.atomikos.jdbc.AtomikosDataSourceBean"
-		init-method="init" destroy-method="close">
-		<property name="uniqueResourceName" value="write_resource" />
-		<property name="xaDataSourceClassName" value="com.alibaba.druid.pool.xa.DruidXADataSource" />
-		<property name="xaProperties">
-			<props>
-				<prop key="url">${jdbc2.url}</prop>
-				<prop key="username">${jdbc2.username}</prop>
-				<prop key="password">${jdbc2.password}</prop>
-				<!-- 初始化时建立物理连接的个数 -->
-				<prop key="initialSize">${jdbc2.initialSize}</prop>
-			</props>
-		</property>
-	</bean>
-
-	<bean id="jdbcTemplateWrite" class="org.springframework.jdbc.core.JdbcTemplate">
-		<property name="dataSource" ref="dataSource_" />
-	</bean>
+	-->
 
 	<!-- atomikos事务管理器 -->
 	<bean id="atomikosTransactionManager" class="com.atomikos.icatch.jta.UserTransactionManager"
@@ -125,17 +106,7 @@
 	<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="annotationClass" value="org.springframework.stereotype.Repository" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-		<property name="basePackage" value="com.haike.web.dao.datasource" />
-	</bean>
-
-	<bean id="sqlSessionFactory_" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource_" />
-	</bean>
-	<!--创建数据映射器，数据映射器必须为接口 -->
-	<bean id="mapperScannerConfigurer_" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="annotationClass" value="org.springframework.stereotype.Repository" />
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory_" />
-		<property name="basePackage" value="com.haike.web.dao.datasource_" />
+		<property name="basePackage" value="com.haike.web.dao" />
 	</bean>
 
 </beans>

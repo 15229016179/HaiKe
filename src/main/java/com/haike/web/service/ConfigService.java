@@ -7,8 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import com.haike.web.dao.datasource.ConfigDao;
-import com.haike.web.dao.datasource_.ConfigDao_;
+import com.haike.web.dao.ConfigDao;
 import com.haike.web.entity.Config;
 
 /**
@@ -22,8 +21,6 @@ public class ConfigService {
 
 	@Resource
 	private ConfigDao configDao;
-	@Resource
-	private ConfigDao_ configDao_;
 
 	// ///////////////////////////////
 	// ///// 增加 ////////
@@ -73,9 +70,6 @@ public class ConfigService {
 		Config config = configDao.getConfigByKey(key);
 		config.setValue(value);
 		configDao.updateConfig(config);
-		Config config2 = configDao_.getConfigByKey(key);
-		config2.setValue(value);
-		configDao_.updateConfig(config2);
 		this.getStringByKey(key);
 		return config;
 	}

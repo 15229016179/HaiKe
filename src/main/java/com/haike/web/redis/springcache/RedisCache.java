@@ -17,7 +17,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 
 public class RedisCache implements Cache {
 
-	private RedisTemplate<String, Object> redisTemplate;
+	private RedisTemplate<String, Object> redisTemplate = new RedisTemplate<String, Object>();
 	/**
 	 * cache的value(eg:@Cacheable(value="commonCache"))
 	 */
@@ -172,6 +172,18 @@ public class RedisCache implements Cache {
 
 	public void setLiveTime(Long liveTime) {
 		this.liveTime = liveTime;
+	}
+
+	@Override
+	public <T> T get(Object key, Class<T> type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ValueWrapper putIfAbsent(Object key, Object value) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

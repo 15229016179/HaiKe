@@ -16,7 +16,7 @@ public class RedisDataSourceImpl implements RedisDataSource {
 	 private static final Logger log = LoggerFactory.getLogger(RedisDataSourceImpl.class);
 
 	    @Autowired
-	    private ShardedJedisPool    shardedJedisPool;
+	    private ShardedJedisPool shardedJedisPool;
 
 	    @Override
 	    public ShardedJedis getRedisClient() {
