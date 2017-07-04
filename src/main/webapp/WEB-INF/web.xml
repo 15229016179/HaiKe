@@ -4,11 +4,6 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
 	<display-name>haike</display-name>
-	<!-- 前端控制器的配置 -->
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath*:/applicationContext.xml</param-value>
-	</context-param>
 	<servlet>
 		<servlet-name>spring</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -24,7 +19,7 @@
 	<!-- 所有以.html和.json的请求都由dispatcherServlet来处理的配置 -->
 	<servlet-mapping>
 		<servlet-name>spring</servlet-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/app/*</url-pattern>
 	</servlet-mapping>
 
 	<filter>
@@ -91,7 +86,13 @@
 	<session-config>
 		<session-timeout>20</session-timeout>
 	</session-config>
+	
 	<welcome-file-list>
-		<welcome-file></welcome-file>
+		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
+	
+	<error-page>  
+        <error-code>404</error-code>  
+        <location>/404.html</location>  
+    </error-page>
 </web-app>

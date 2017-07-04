@@ -22,13 +22,13 @@
 	         http://www.springframework.org/schema/task	
 	         http://www.springframework.org/schema/task/spring-task.xsd ">
 
-	<context:property-placeholder location="classpath:/dbconfig.properties"
+	<context:property-placeholder location="classpath*:/dbconfig.properties"
 		ignore-resource-not-found="true" ignore-unresolvable="true" />
 	<import resource="redis.xml" />
 	<!-- 自动扫描的包名 -->
 	<context:component-scan base-package="com.haike.web" />
 
-	<mvc:default-servlet-handler />
+	<mvc:annotation-driven />
 
 	<task:annotation-driven />
 
