@@ -66,11 +66,18 @@ body a {
 
 .head-logo {
     float: left;
-    margin-top: 1em;
+    /*margin-top: 1em;*/
 }
 
 .head-logo a {
     display: block;
+}
+
+.clearfix {
+    text-align: right;
+    font-size: 35px;
+    color: coral;
+    height: auto;
 }
 
 /*-- bg-banner --*/
@@ -81,7 +88,7 @@ body a {
 
 .banner-bottom-bg {
     background: url(../images/strip1.png);
-    min-height: 157em;
+    min-height: 162em;
 }
 
 /*-- banner --*/
@@ -328,7 +335,7 @@ body a {
 }
 
 .banner-left-grid p.comments {
-    color: #d7d7d7;
+    color: #a7a7a7;
     font-size: 12px;
     margin: 1em 0;
     font-family: 'native_font';
@@ -336,7 +343,7 @@ body a {
 }
 
 .banner-left-grid p.comments a {
-    color: #d7d7d7;
+    color: #a7a7a7;
     text-decoration: none;
 }
 
@@ -388,7 +395,7 @@ body a {
 }
 
 .blog-grid-right p.comments {
-    color: #d7d7d7;
+    color: #a7a7a7;
     font-size: 12px;
     margin: 0;
     font-family: 'native_font';
@@ -451,7 +458,7 @@ body a {
 }
 
 .post-right p.comments {
-    color: #d7d7d7;
+    color: #a7a7a7;
     font-size: 12px;
     margin: 1em 0;
     font-family: 'native_font';
@@ -459,7 +466,7 @@ body a {
 }
 
 .post-right p.comments a {
-    color: #d7d7d7;
+    color: #a7a7a7;
     text-decoration: none;
 }
 
@@ -477,7 +484,7 @@ body a {
 /*-- banner-bottom-right --*/
 .banner-bottom-right {
     border-left: 1px solid #F2F2F2;
-    margin: 2em 0 0 0;
+    margin: 0 0 0 0;
 }
 
 .search input[type="text"] {
@@ -651,7 +658,7 @@ body a {
 }
 
 .twitter-info p span.time a {
-    color: #d7d7d7;
+    color: #a7a7a7;
     font-size: 13px;
     margin: 0;
     font-family: 'native_font';
@@ -1153,12 +1160,12 @@ body a {
 .single-bottom ul li {
     display: inline-block;
     font-size: 14px;
-    color: #d7d7d7;
+    color: #a7a7a7;
     margin: 0 1em;
 }
 
 .single-bottom ul li a {
-    color: #d7d7d7;
+    color: #a7a7a7;
     font-size: 14px;
     text-decoration: none;
 }

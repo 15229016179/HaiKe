@@ -1,6 +1,8 @@
 build/
 */build/
 
+.idea/
+*/.idea/
 .settings/
 /target/
 /bin/
