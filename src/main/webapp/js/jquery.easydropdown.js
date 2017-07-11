@@ -1,23 +1,23 @@
 (function($){
-	
+
 	function EasyDropDown(){
 		this.isField = true,
-		this.down = false,
-		this.inFocus = false,
-		this.disabled = false,
-		this.cutOff = false,
-		this.hasLabel = false,
-		this.keyboardMode = false,
-		this.nativeTouch = true,
-		this.wrapperClass = 'dropdown',
-		this.onChange = null;
+			this.down = false,
+			this.inFocus = false,
+			this.disabled = false,
+			this.cutOff = false,
+			this.hasLabel = false,
+			this.keyboardMode = false,
+			this.nativeTouch = true,
+			this.wrapperClass = 'dropdown',
+			this.onChange = null;
 	}
 	EasyDropDown.prototype = {
 		constructor: EasyDropDown,
 		instances: {},
 		init: function(domNode, settings){
 			var	self = this;
-			
+
 			$.extend(self, settings);
 			self.$select = $(domNode);
 			self.id = domNode.id;
@@ -61,12 +61,12 @@
 				self.render();
 			}
 		},
-	
+
 		render: function(){
 			var	self = this,
 				touchClass = self.isTouch && self.nativeTouch ? ' touch' : '',
 				disabledClass = self.disabled ? ' disabled' : '';
-			
+
 			self.$container = self.$select.wrap('<div class="'+self.wrapperClass+touchClass+disabledClass+'"><span class="old"/></div>').parent().parent();
 			self.$active = $('<span class="selected">'+self.selected.title+'</span>').appendTo(self.$container);
 			self.$carat = $('<span class="carat"/>').appendTo(self.$container);
@@ -79,23 +79,23 @@
 				self.$dropDown.append('<li'+active+'>'+option.title+'</li>');
 			});
 			self.$items = self.$dropDown.find('li');
-			
+
 			if(self.cutOff && self.$items.length > self.cutOff)self.$container.addClass('scrollable');
-			
+
 			self.getMaxHeight();
-	
+
 			if(self.isTouch && self.nativeTouch){
 				self.bindTouchHandlers();
 			} else {
 				self.bindHandlers();
 			}
 		},
-		
+
 		getMaxHeight: function(){
 			var self = this;
-			
+
 			self.maxHeight = 0;
-			
+
 			for(i = 0; i < self.$items.length; i++){
 				var $item = self.$items.eq(i);
 				self.maxHeight += $item.outerHeight();
@@ -104,7 +104,7 @@
 				}
 			}
 		},
-		
+
 		bindTouchHandlers: function(){
 			var	self = this;
 			self.$container.on('click.easyDropDown',function(){
@@ -115,11 +115,11 @@
 					var	$selected = $(this).find('option:selected'),
 						title = $selected.text(),
 						value = $selected.val();
-						
+
 					self.$active.text(title);
 					if(typeof self.onChange === 'function'){
 						self.onChange.call(self.$select[0],{
-							title: title, 
+							title: title,
 							value: value
 						});
 					}
@@ -132,7 +132,7 @@
 				}
 			});
 		},
-	
+
 		bindHandlers: function(){
 			var	self = this;
 			self.query = '';
@@ -150,7 +150,7 @@
 					}
 				}
 			});
-			
+
 			$('body').on('click.easyDropDown.'+self.id,function(e){
 				var $target = $(e.target),
 					classNames = self.wrapperClass.split(' ').join('.');
@@ -241,7 +241,7 @@
 					},1200);
 				}
 			});
-			
+
 			self.$dropDown.on('scroll.easyDropDown',function(e){
 				if(self.$dropDown[0].scrollTop >= self.$dropDown[0].scrollHeight - self.maxHeight){
 					self.$container.addClass('bottom');
@@ -249,7 +249,7 @@
 					self.$container.removeClass('bottom');
 				}
 			});
-			
+
 			if(self.$form.length){
 				self.$form.on('reset.easyDropDown', function(){
 					var active = self.hasLabel ? self.label : self.options[0].title;
@@ -257,10 +257,10 @@
 				});
 			}
 		},
-		
+
 		unbindHandlers: function(){
 			var self = this;
-			
+
 			self.$container
 				.add(self.$select)
 				.add(self.$items)
@@ -269,7 +269,7 @@
 				.off('.easyDropDown');
 			$('body').off('.'+self.id);
 		},
-		
+
 		open: function(){
 			var self = this,
 				scrollTop = window.scrollY || document.documentElement.scrollTop,
@@ -284,7 +284,7 @@
 			self.$scrollWrapper.css('height',self.maxHeight+'px');
 			self.down = true;
 		},
-		
+
 		close: function(){
 			var self = this;
 			self.$container.removeClass('open');
@@ -293,7 +293,7 @@
 			self.query = '';
 			self.down = false;
 		},
-		
+
 		closeAll: function(){
 			var self = this,
 				instances = Object.getPrototypeOf(self).instances;
@@ -302,10 +302,10 @@
 				instance.close();
 			}
 		},
-	
+
 		select: function(index){
 			var self = this;
-			
+
 			if(typeof index === 'string'){
 				index = self.$select.find('option[value='+index+']').index() - 1;
 			}
@@ -320,7 +320,7 @@
 				.prop('selected',true)
 				.parent()
 				.trigger('change');
-				
+
 			self.selected = {
 				index: index,
 				title: option.title
@@ -328,23 +328,23 @@
 			self.focusIndex = i;
 			if(typeof self.onChange === 'function'){
 				self.onChange.call(self.$select[0],{
-					title: option.title, 
+					title: option.title,
 					value: option.value
 				});
 			}
 		},
-		
+
 		search: function(){
 			var self = this,
 				lock = function(i){
 					self.focusIndex = i;
 					self.$items.removeClass('focus').eq(self.focusIndex).addClass('focus');
-					self.scrollToView();	
+					self.scrollToView();
 				},
 				getTitle = function(i){
 					return self.options[i].title.toUpperCase();
 				};
-				
+
 			for(i = 0; i < self.options.length; i++){
 				var title = getTitle(i);
 				if(title.indexOf(self.query) == 0){
@@ -360,17 +360,17 @@
 				}
 			}
 		},
-		
+
 		scrollToView: function(){
 			var self = this;
 			if(self.focusIndex >= self.cutOff){
 				var $focusItem = self.$items.eq(self.focusIndex),
 					scroll = ($focusItem.outerHeight() * (self.focusIndex + 1)) - self.maxHeight;
-			
+
 				self.$dropDown.scrollTop(scroll);
 			}
 		},
-		
+
 		notInViewport: function(scrollTop){
 			var self = this,
 				range = {
@@ -378,14 +378,14 @@
 					max: scrollTop + (window.innerHeight || document.documentElement.clientHeight)
 				},
 				menuBottom = self.$dropDown.offset().top + self.maxHeight;
-				
+
 			if(menuBottom >= range.min && menuBottom <= range.max){
 				return 0;
 			} else {
 				return (menuBottom - range.max) + 5;
 			}
 		},
-		
+
 		destroy: function(){
 			var self = this;
 			self.unbindHandlers();
@@ -393,7 +393,7 @@
 			self.$select.unwrap();
 			delete Object.getPrototypeOf(self).instances[self.$select[0].id];
 		},
-		
+
 		disable: function(){
 			var self = this;
 			self.disabled = true;
@@ -401,7 +401,7 @@
 			self.$select.attr('disabled',true);
 			if(!self.down)self.close();
 		},
-		
+
 		enable: function(){
 			var self = this;
 			self.disabled = false;
@@ -409,7 +409,7 @@
 			self.$select.attr('disabled',false);
 		}
 	};
-	
+
 	var instantiate = function(domNode, settings){
 			domNode.id = !domNode.id ? 'EasyDropDown'+rand() : domNode.id;
 			var instance = new EasyDropDown();
@@ -421,12 +421,12 @@
 		rand = function(){
 			return ('00000'+(Math.random()*16777216<<0).toString(16)).substr(-6).toUpperCase();
 		};
-	
+
 	$.fn.easyDropDown = function(){
 		var args = arguments,
 			dataReturn = [],
 			eachReturn;
-			
+
 		eachReturn = this.each(function(){
 			if(args && typeof args[0] === 'string'){
 				var data = EasyDropDown.prototype.instances[this.id][args[0]](args[1], args[2]);
@@ -435,14 +435,14 @@
 				instantiate(this, args[0]);
 			}
 		});
-		
+
 		if(dataReturn.length){
 			return dataReturn.length > 1 ? dataReturn : dataReturn[0];
 		} else {
 			return eachReturn;
 		}
 	};
-	
+
 	$(function(){
 		if(typeof Object.getPrototypeOf !== 'function'){
 			if(typeof 'test'.__proto__ === 'object'){
@@ -457,7 +457,7 @@
 		}
 		$('select.dropdown').each(function(){
 			var json = $(this).attr('data-settings');
-				settings = json ? $.parseJSON(json) : {}; 
+			settings = json ? $.parseJSON(json) : {};
 			instantiate(this, settings);
 		});
 	});
