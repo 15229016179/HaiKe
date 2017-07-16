@@ -83,7 +83,7 @@ body a {
 /*-- bg-banner --*/
 .banner-bg {
     background: url(../images/strip.png);
-    min-height: 426px;
+    min-height: 380px;
 }
 
 .banner-bottom-bg {
@@ -1025,7 +1025,7 @@ body a {
 
 /*-- contact --*/
 .contact-bg {
-    min-height: 59em;
+    min-height: 20em;
 }
 
 .contact h2 {
@@ -1042,23 +1042,51 @@ body a {
 }
 
 .mail-info-grids {
-    margin-top: 2em;
+    margin-top: 5.5em;
 }
 
-.mail-info-grid h3 {
+.share {
+    margin-top: 3em;
+}
+
+.share-bg {
+    min-height: 20em;
+}
+
+.share h2 {
     font-size: 20px;
     margin: 0 0 1em 0;
     color: #323232;
     font-weight: 600;
 }
 
-.mail-info-grid p {
+.help-bg {
+    min-height: 50em;
+}
+
+.help_questions {
+    margin-top: 3em;
+}
+
+.question_gif {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.about h3 {
+    font-size: 20px;
+    margin: 0 0 1em 0;
+    color: #323232;
+    font-weight: 600;
+}
+
+.about p {
     color: #8c8c8c;
     font-size: 14px;
     margin: .5em 0 0 0;
 }
 
-.mail-info-grid h6 {
+.about h6 {
     color: #1E1E1E;
     font-size: 16px;
     font-weight: 700;
@@ -1066,11 +1094,36 @@ body a {
     margin: 0.5em 0;
 }
 
-.mail-info-grid span {
+.about span {
     display: block;
 }
 
-.mail-info-grid span {
+.about span {
+    display: block;
+}
+
+.questions h3 {
+    font-size: 20px;
+    margin: 0 0 1em 0;
+    color: #323232;
+    font-weight: 600;
+}
+
+.questions p {
+    color: #8c8c8c;
+    font-size: 14px;
+    margin: .5em 0 0 0;
+}
+
+.questions h6 {
+    color: #1E1E1E;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5em;
+    margin: 0.5em 0;
+}
+
+.questions span {
     display: block;
 }
 
@@ -1117,6 +1170,63 @@ body a {
 
 .contact-form input[type="submit"]:hover {
     background: #e47600
+}
+
+.share form {
+    text-align: right;
+}
+
+.share input[type="text"] {
+    width: 100%;
+    color: #898888;
+    background: none;
+    outline: none;
+    font-size: 14px;
+    padding: .5em;
+    margin-bottom: 1em;
+    border: solid 1px #D5D4D4;
+    -webkit-appearance: none;
+}
+
+.share textarea {
+    resize: none;
+    width: 100%;
+    color: #898888;
+    font-size: 14px;
+    outline: none;
+    padding: .5em;
+    border: solid 1px #D5D4D4;
+    min-height: 150px;
+    -webkit-appearance: none;
+}
+
+.share input[type="submit"] {
+    border: none;
+    outline: none;
+    color: #FFF;
+    padding: .5em 1.5em;
+    font-family: 'native_font', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0.5em 0 0 0;
+    -webkit-appearance: none;
+    background: #666666;
+}
+
+.share input[type="submit"]:hover {
+    background: #e47600
+}
+
+.category {
+    width: 100%;
+    text-align: left;
+    margin: 0.5em 0 1em 0;
+}
+
+.category select {
+    text-align: left;
+    line-height: inherit;
+    padding: .5em;
 }
 
 /*-- single --*/
