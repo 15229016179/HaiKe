@@ -1,24 +1,28 @@
 package com.haike.web.dao;
 
-import java.sql.Connection;
-import java.sql.SQLException;
+import org.springframework.data.repository.query.Param;
 
-import com.haike.web.entity.UserAddr;
 import com.haike.web.entity.UserInfo;
+import com.sun.tools.javac.util.List;
 
 /**
  * @author xiaoming
  *
  */
 public interface UserDao {
-	public void save(Connection conn, UserAddr userAddr) throws SQLException;
+	public int saveUser(UserInfo userInfo);
 
-	public void update(Connection conn, UserAddr userAddr) throws SQLException;
+	public int updateUser(UserInfo userInfo);
 
-	public void delete(Connection conn, long id) throws SQLException;
+	public int deleteUser(@Param("id") String id);
 
-	public UserAddr singalSelect(Connection conn, long id) throws SQLException;
-
-	public boolean queryUser(Connection conn, UserInfo userInfo)
-			throws SQLException;
+	public UserInfo queryUserById(@Param("id") String id);
+	
+	public UserInfo queryUserByEmail(@Param("email") String email);
+	
+	public UserInfo queryUserByUserName(@Param("userName") String userName);
+	
+	public UserInfo queryUserByUserNameAndEmail(@Param("userName") String userName, @Param("email") String email);
+	
+	public List<UserInfo> queryUsers();
 }

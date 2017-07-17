@@ -1,21 +1,24 @@
 package com.haike.web.entity;
 
+import java.util.Date;
+
 /**
  * @author xiaoming
  *
  * @tags 
  */
 public class UserInfo extends IdEntity {
-	private String username;
+	private String userName;
 	private String password;
 	private String email;
-
-	public String getUsername() {
-		return username;
+	private Date createTime;
+	
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getPassword() {
@@ -34,14 +37,12 @@ public class UserInfo extends IdEntity {
 		this.email = email;
 	}
 
-	@Override
-	public String toString() {
-		return "UserInfo [username=" + username + ", password=" + password
-				+ ", email=" + email + ", id=" + id + ", getUsername()="
-				+ getUsername() + ", getPassword()=" + getPassword()
-				+ ", getEmail()=" + getEmail() + ", getId()=" + getId()
-				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+	public Date getCreateTime() {
+		return createTime;
 	}
 
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+	
 }

@@ -6,21 +6,14 @@ package com.haike.web.entity;
  * @tags
  */
 public abstract class IdEntity {
-	protected long id;
+	protected String id;
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
-	}
-
-	@Override
-	public String toString() {
-		return "IdEntity [id=" + id + ", getId()=" + getId() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
 	}
 
 }

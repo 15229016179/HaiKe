@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haike.web.dao.UserDao">
+	
+	<!-- ############################## -->
+	<!-- ######        增加                      ###### -->
+	<!-- ############################## -->
+	
+	<insert id="addUser" parameterType="com.haike.web.entity.UserInfo">
+		insert into
+		user(id,userName,password,email,createTime)
+		value(#{id},#{userName},#{password},#{email},#{createTime})
+	</insert>
+	
+	<!-- ############################## -->
+	<!-- ######       删除                         ###### -->
+	<!-- ############################## -->
+		
+	<delete id="deleteUser" parameterType="com.haike.web.entity.UserInfo">
+		delete from user where id=#{id}
+	</delete>
+	
+	<!-- ############################## -->
+	<!-- ######       修改                         ###### -->
+	<!-- ############################## -->
+	
+	<update id="updateUser" parameterType="com.haike.web.entity.UserInfo">
+		update user set userName=#{userName},password=#{password},email=#{email}
+		where id=#{id}
+	</update>
+	
+	<!-- ############################## -->
+	<!-- ######       id查询                         ###### -->
+	<!-- ############################## -->
+		
+	<select id="queryUserById" resultType="com.haike.web.entity.UserInfo">
+		select * from user where id=#{id}
+	</select>
+	
+	<!-- ############################## -->
+	<!-- ######       邮箱查询                         ###### -->
+	<!-- ############################## -->
+		
+	<select id="queryUserByEmail" resultType="com.haike.web.entity.UserInfo">
+		select * from user where email=#{email}
+	</select>
+	
+	<!-- ############################## -->
+	<!-- ######       用户名查询                         ###### -->
+	<!-- ############################## -->
+		
+	<select id="queryUserByUserName" resultType="com.haike.web.entity.UserInfo">
+		select * from user where userName=#{userName}
+	</select>
+	
+	<!-- ############################## -->
+	<!-- ######       用户名和邮箱查询                         ###### -->
+	<!-- ############################## -->
+		
+	<select id="queryUserByUserNameAndEmail" resultType="com.haike.web.entity.UserInfo">
+		select * from user where userName=#{userName} and email=#{email}
+	</select>
+	
+	<select id="queryUsers" resultMap="resultListUser">
+        select * from user
+    </select>
+	
+	<resultMap type="com.haike.web.entity.UserInfo" id="resultListUser">
+        <id column="id" property="id" />
+        <result column="userName" property="userName" />
+        <result column="password" property="password" />
+        <result column="email" property="email" />
+        <result column="createTime" property="createTime" />
+    </resultMap>
+</mapper>  

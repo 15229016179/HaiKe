@@ -8,7 +8,7 @@
 	
 	<insert id="addConfig" parameterType="com.haike.web.entity.Config">
 		insert into
-		config(`key`,`value`,createTime)
+		config(key,value,createTime)
 		value(#{key},#{value},#{createTime})
 	</insert>
 	
@@ -17,7 +17,7 @@
 	<!-- ############################## -->
 		
 	<delete id="deleteConfig" parameterType="com.haike.web.entity.Config">
-		delete from config where `key`=#{key}
+		delete from config where key=#{key}
 	</delete>
 	
 	<!-- ############################## -->
@@ -26,7 +26,7 @@
 	
 	<update id="updateConfig" parameterType="com.haike.web.entity.Config">
 		update config set value=#{value}
-		where `key`=#{key}
+		where key=#{key}
 	</update>
 	
 	<!-- ############################## -->
@@ -34,6 +34,6 @@
 	<!-- ############################## -->
 		
 	<select id="getConfigByKey" resultType="com.haike.web.entity.Config">
-		select * from config where `key`=#{key}
+		select * from config where key=#{key}
 	</select>
 </mapper>  
