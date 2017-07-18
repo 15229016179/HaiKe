@@ -1,6 +1,7 @@
 package com.haike.web.service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -9,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.haike.web.dao.UserDao;
 import com.haike.web.entity.UserInfo;
-import com.sun.tools.javac.util.List;
 
 /**
  * @author xiaoming

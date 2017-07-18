@@ -26,7 +26,7 @@ public class ConfigAction {
 	
 	@RequestMapping(value = "/config.jhtml", method = RequestMethod.GET)
 	@ResponseBody
-	public Map<String, String> login(HttpServletRequest request, ModelMap modelMap,
+	public Map<String, String> config(HttpServletRequest request, ModelMap modelMap,
 			String requestUrlString) {
 		Map<String, String> map=new HashMap<String, String>();
 		configService.getStringByKey("dinghao_seo_headline");

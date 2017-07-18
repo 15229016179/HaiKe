@@ -1,10 +1,11 @@
 package com.haike.web.dao;
 
+import java.util.List;
+
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.haike.web.entity.UserInfo;
-import com.sun.tools.javac.util.List;
 
 /**
  * @author xiaoming

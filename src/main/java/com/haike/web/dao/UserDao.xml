@@ -33,7 +33,7 @@
 	<!-- ######       id查询                         ###### -->
 	<!-- ############################## -->
 		
-	<select id="queryUserById" resultType="com.haike.web.entity.UserInfo">
+	<select id="queryUserById" parameterType="com.haike.web.entity.UserInfo" resultType="com.haike.web.entity.UserInfo">
 		select * from user where id=#{id}
 	</select>
 	
@@ -41,7 +41,7 @@
 	<!-- ######       邮箱查询                         ###### -->
 	<!-- ############################## -->
 		
-	<select id="queryUserByEmail" resultType="com.haike.web.entity.UserInfo">
+	<select id="queryUserByEmail" parameterType="com.haike.web.entity.UserInfo" resultType="com.haike.web.entity.UserInfo">
 		select * from user where email=#{email}
 	</select>
 	
@@ -49,7 +49,7 @@
 	<!-- ######       用户名查询                         ###### -->
 	<!-- ############################## -->
 		
-	<select id="queryUserByUserName" resultType="com.haike.web.entity.UserInfo">
+	<select id="queryUserByUserName" parameterType="com.haike.web.entity.UserInfo" resultType="com.haike.web.entity.UserInfo">
 		select * from user where userName=#{userName}
 	</select>
 	
@@ -57,7 +57,7 @@
 	<!-- ######       用户名和邮箱查询                         ###### -->
 	<!-- ############################## -->
 		
-	<select id="queryUserByUserNameAndEmail" resultType="com.haike.web.entity.UserInfo">
+	<select id="queryUserByUserNameAndEmail" parameterType="com.haike.web.entity.UserInfo" resultType="com.haike.web.entity.UserInfo">
 		select * from user where userName=#{userName} and email=#{email}
 	</select>
 	
