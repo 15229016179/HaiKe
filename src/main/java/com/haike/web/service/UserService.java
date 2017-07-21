@@ -39,19 +39,19 @@ public class UserService {
 	 * @return
 	 */
 	public int addUser(String email, String userName, String password) {
-		UserInfo user = userDao.queryUserByUserName(userName);
-		if (user != null)
-			return STATUS_ADD_FAILED_EXISTED_USERNAME;
-		user = userDao.queryUserByEmail(email);
+		UserInfo user = userDao.queryUserByEmail(email);
 		if (user != null)
 			return STATUS_ADD_FAILED_EXISTED_EMAIL;
+		user = userDao.queryUserByUserName(userName);
+		if (user != null)
+			return STATUS_ADD_FAILED_EXISTED_USERNAME;
 		user = new UserInfo();
 		user.setId(UUID.randomUUID().toString());
 		user.setEmail(email);
 		user.setPassword(password);
 		user.setUserName(userName);
 		user.setCreateTime(new Date());
-		int result = userDao.saveUser(user);
+		int result = userDao.addUser(user);
 		if (result == 1)
 			return STATUS_ADD_SUCCESS;
 		else

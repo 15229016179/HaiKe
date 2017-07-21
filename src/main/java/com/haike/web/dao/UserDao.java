@@ -13,7 +13,7 @@ import com.haike.web.entity.UserInfo;
  */
 @Repository
 public interface UserDao {
-	public int saveUser(UserInfo userInfo);
+	public int addUser(UserInfo userInfo);
 
 	public int updateUser(UserInfo userInfo);
 

@@ -27,8 +27,6 @@ package com.haike.web.util;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import sun.misc.BASE64Decoder;
-
 /**
  * This class implements a BASE64 Character encoder as specified in RFC1521.
  * This RFC is part of the MIME specification as published by the Internet
@@ -40,7 +38,6 @@ import sun.misc.BASE64Decoder;
  * 
  * @author Chuck McManis
  * @see CharacterEncoder
- * @see BASE64Decoder
  */
 public class Base64Encoder extends CharacterEncoder
 {

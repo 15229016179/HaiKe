@@ -29,7 +29,11 @@ public enum Status {
 	/**
 	 * INTERNAL_SERVER_ERROR 服务器出错
 	 */
-	INTERNAL_SERVER_ERROR(500, "服务器出错");
+	INTERNAL_SERVER_ERROR(500, "服务器出错"),
+	/**
+	 * INTERNAL_SERVER_ERROR_DB 服务器操作数据库出错
+	 */
+	INTERNAL_SERVER_ERROR_DB(501, "服务器操作数据库出错");
 	
 	private int code;// 状态码
 	private String message;// 消息
