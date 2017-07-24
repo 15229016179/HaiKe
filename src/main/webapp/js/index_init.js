@@ -18,4 +18,26 @@ window.onload = function () {
         document.getElementById('like_update_date_' + i).innerHTML = yyyy + "年" + MM + "月" + dd + "日";
     }
 
+    initUser();
+
 };
+
+function initUser() {
+    var user = localStorage.getItem('user');
+    if (user != '') {
+        user = JSON.parse(user);
+        var userName = user.userName;
+        document.getElementById("login").style.display = "none";
+        document.getElementById("user").style.display = "inline";
+        document.getElementById("user").innerHTML = userName + ' | <a href="#" onclick="quit()">注销</a>';
+    } else {
+    	document.getElementById("user").style.display = "none";
+        document.getElementById("login").style.display = "inline";
+    }
+}
+
+function quit() {
+    localStorage.removeItem('user')
+    location.reload(true)
+}
+

@@ -13,7 +13,6 @@ import com.haike.web.entity.UserInfo;
 
 /**
  * @author xiaoming
- *
  * @tags
  */
 @Service
@@ -26,6 +25,7 @@ public class UserService {
 	public static final int STATUS_UPDATE_SUCCESS = 111;
 	public static final int STATUS_UPDATE_FAILED_INEXISTENCE_USERNAME = 112;
 	public static final int STATUS_UPDATE_FAILED_INEXISTENCE_EMAIL = 113;
+	public static final int STATUS_UPDATE_FAILED_DB = 114;
 
 	@Resource
 	private UserDao userDao;
@@ -78,9 +78,9 @@ public class UserService {
 		user.setPassword(password);
 		int result = userDao.updateUser(user);
 		if (result == 1)
-			return STATUS_ADD_SUCCESS;
+			return STATUS_UPDATE_SUCCESS;
 		else
-			return STATUS_ADD_FAILED_DB;
+			return STATUS_UPDATE_FAILED_DB;
 	}
 
 	/**

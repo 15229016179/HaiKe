@@ -71,7 +71,7 @@ public class UserAction {
 			res.setMessage(Status.BAD_REQUEST.getMessage());
 			return res;
 		}
-		if(!StringUtils.isEmail(email)){
+		if (!StringUtils.isEmail(email)) {
 			response.setStatus(Status.BAD_REQUEST_PARAMS.getCode());
 			res.setCode(Status.BAD_REQUEST_PARAMS.getCode());
 			res.setMessage(Status.BAD_REQUEST_PARAMS.getMessage() + ",邮箱格式不正确");
@@ -96,9 +96,54 @@ public class UserAction {
 			res.setMessage("该邮箱已注册");
 			break;
 		default:
+			response.setStatus(Status.INTERNAL_SERVER_ERROR_DB.getCode());
 			res.setCode(Status.INTERNAL_SERVER_ERROR_DB.getCode());
 			res.setMessage(Status.INTERNAL_SERVER_ERROR_DB.getMessage() + ",保存用户到数据库出错");
 			break;
+		}
+		return res;
+	}
+
+	@RequestMapping(value = "/changePasswd", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseVo<UserInfo> changePassword(HttpServletRequest request, HttpServletResponse response) {
+		ResponseVo<UserInfo> res = new ResponseVo<UserInfo>();
+		String email = request.getParameter("email");
+		String userName = request.getParameter("userName");
+		String password = request.getParameter("password");
+		logger.debug("UserAction changePasswd email=" + email + ",userName=" + userName + ",password=" + password);
+		if (StringUtils.isEmpty(email) || StringUtils.isEmpty(userName) || StringUtils.isEmpty(password)) {
+			response.setStatus(Status.BAD_REQUEST.getCode());
+			res.setCode(Status.BAD_REQUEST.getCode());
+			res.setMessage(Status.BAD_REQUEST.getMessage());
+			return res;
+		}
+		if (!StringUtils.isEmail(email)) {
+			response.setStatus(Status.BAD_REQUEST_PARAMS.getCode());
+			res.setCode(Status.BAD_REQUEST_PARAMS.getCode());
+			res.setMessage(Status.BAD_REQUEST_PARAMS.getMessage() + ",邮箱格式不正确");
+			return res;
+		}
+		int updateUserPassword = userService.updateUserPassword(email, userName, SecurityUtils.sha1(password));
+		switch (updateUserPassword) {
+		case UserService.STATUS_UPDATE_FAILED_INEXISTENCE_EMAIL:
+			response.setStatus(Status.BAD_REQUEST_PARAMS.getCode());
+			res.setCode(Status.BAD_REQUEST_PARAMS.getCode());
+			res.setMessage("未注册该邮箱");
+			break;
+		case UserService.STATUS_UPDATE_FAILED_INEXISTENCE_USERNAME:
+			response.setStatus(Status.BAD_REQUEST_PARAMS.getCode());
+			res.setCode(Status.BAD_REQUEST_PARAMS.getCode());
+			res.setMessage("用户名不存在");
+			break;
+		case UserService.STATUS_UPDATE_SUCCESS:
+			res.setCode(Status.OK.getCode());
+			res.setMessage(Status.OK.getMessage() + ",更改密码成功，请重新登录");
+			break;
+		default:
+			response.setStatus(Status.INTERNAL_SERVER_ERROR_DB.getCode());
+			res.setCode(Status.INTERNAL_SERVER_ERROR_DB.getCode());
+			res.setMessage(Status.INTERNAL_SERVER_ERROR_DB.getMessage() + ",操作数据库出错");
 		}
 		return res;
 	}
