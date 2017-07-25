@@ -1,5 +1,8 @@
 package com.haike.web.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,6 +20,10 @@ import com.haike.web.service.UserService;
 import com.haike.web.util.SecurityUtils;
 import com.haike.web.util.StringUtils;
 
+/**
+ * @author xiaoming
+ *	用户
+ */
 @Controller
 @RequestMapping("user")
 public class UserAction {
@@ -145,6 +152,45 @@ public class UserAction {
 			res.setCode(Status.INTERNAL_SERVER_ERROR_DB.getCode());
 			res.setMessage(Status.INTERNAL_SERVER_ERROR_DB.getMessage() + ",操作数据库出错");
 		}
+		return res;
+	}
+	
+	@RequestMapping(value = "/get", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseVo<UserInfo> getUser(HttpServletRequest request, HttpServletResponse response) {
+		ResponseVo<UserInfo> res = new ResponseVo<UserInfo>();
+		String id = request.getParameter("id");
+		logger.debug("UserAction login id=" + id);
+		if (StringUtils.isEmpty(id)) {
+			response.setStatus(Status.BAD_REQUEST.getCode());
+			res.setCode(Status.BAD_REQUEST.getCode());
+			res.setMessage(Status.BAD_REQUEST.getMessage());
+			return res;
+		}
+		UserInfo user = userService.queryUserById(id);
+		if (user == null) {
+			response.setStatus(Status.BAD_REQUEST_PARAMS.getCode());
+			res.setCode(Status.BAD_REQUEST_PARAMS.getCode());
+			res.setMessage(Status.BAD_REQUEST_PARAMS.getMessage() + ",查询不到用户信息");
+		}else{
+			res.setCode(Status.OK.getCode());
+			res.setMessage(Status.OK.getMessage());
+			res.setResult(user);
+		}
+		return res;
+	}
+	
+	@RequestMapping(value = "/getAll", method = RequestMethod.GET)
+	@ResponseBody
+	public ResponseVo<List<UserInfo>> getAllUser(HttpServletRequest request, HttpServletResponse response) {
+		ResponseVo<List<UserInfo>> res = new ResponseVo<List<UserInfo>>();
+		List<UserInfo> users = userService.queryUsers();
+		if(users == null){
+			users = new ArrayList<UserInfo>();
+		}
+		res.setCode(Status.OK.getCode());
+		res.setMessage(Status.OK.getMessage());
+		res.setResult(users);
 		return res;
 	}
 

@@ -7,9 +7,9 @@
 	<!-- ############################## -->
 	
 	<insert id="addUser" parameterType="com.haike.web.entity.UserInfo">
-		insert into
+		INSERT INTO
 		user(id,userName,password,email,createTime)
-		value(#{id},#{userName},#{password},#{email},#{createTime})
+		VALUE(#{id},#{userName},#{password},#{email},#{createTime})
 	</insert>
 	
 	<!-- ############################## -->
@@ -17,7 +17,7 @@
 	<!-- ############################## -->
 		
 	<delete id="deleteUser" parameterType="String">
-		delete from user where id=#{id}
+		DELETE FROM user WHERE id=#{id}
 	</delete>
 	
 	<!-- ############################## -->
@@ -25,8 +25,9 @@
 	<!-- ############################## -->
 	
 	<update id="updateUser" parameterType="com.haike.web.entity.UserInfo">
-		update user set userName=#{userName},password=#{password},email=#{email}
-		where id=#{id}
+		UPDATE user 
+		SET userName=#{userName},password=#{password},email=#{email}
+		WHERE id=#{id}
 	</update>
 	
 	<!-- ############################## -->
@@ -34,7 +35,7 @@
 	<!-- ############################## -->
 		
 	<select id="queryUserById" parameterType="String" resultType="com.haike.web.entity.UserInfo">
-		select * from user where id=#{id}
+		SELECT * FROM user WHERE id=#{id}
 	</select>
 	
 	<!-- ############################## -->
@@ -42,7 +43,7 @@
 	<!-- ############################## -->
 		
 	<select id="queryUserByEmail" parameterType="String" resultType="com.haike.web.entity.UserInfo">
-		select * from user where email=#{email}
+		SELECT * FROM user WHERE email=#{email}
 	</select>
 	
 	<!-- ############################## -->
@@ -50,7 +51,7 @@
 	<!-- ############################## -->
 		
 	<select id="queryUserByUserName" parameterType="String" resultType="com.haike.web.entity.UserInfo">
-		select * from user where userName=#{userName}
+		SELECT * FROM user WHERE userName=#{userName}
 	</select>
 	
 	<!-- ############################## -->
@@ -58,11 +59,11 @@
 	<!-- ############################## -->
 		
 	<select id="queryUserByUserNameAndEmail" parameterType="String" resultType="com.haike.web.entity.UserInfo">
-		select * from user where userName=#{0} and email=#{1}
+		SELECT * FROM user WHERE userName=#{0} and email=#{1}
 	</select>
 	
 	<select id="queryUsers" resultMap="resultListUser">
-        select * from user
+        SELECT * FROM user
     </select>
 	
 	<resultMap type="com.haike.web.entity.UserInfo" id="resultListUser">

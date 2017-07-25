@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haike.web.dao.FeedbackDao">
+
+	<!-- ############################## -->
+	<!-- ###### 增加 ###### -->
+	<!-- ############################## -->
+
+	<insert id="addFeedback" parameterType="com.haike.web.entity.Feedback">
+		INSERT INTO
+		feedback(id,name,userId,email,title,content,createTime,removed)
+		VALUE(#{id},#{name},#{userId},#{email},#{title},#{content},#{createTime},#{removed})
+	</insert>
+
+	<!-- ############################## -->
+	<!-- ###### 删除 ###### -->
+	<!-- ############################## -->
+
+	<delete id="deleteFeedback" parameterType="String">
+		DELETE FROM feedback
+		WHERE id=#{id}
+	</delete>
+
+	<!-- ############################## -->
+	<!-- ###### id查询 ###### -->
+	<!-- ############################## -->
+
+	<select id="queryFeedbackById" parameterType="String" resultMap="resultListFeedback">
+		SELECT * FROM feedback f 
+		INNER JOIN user u 
+		ON f.userId=u.id
+		WHERE f.id=#{id} 
+	</select>
+
+	<select id="queryFeedbacks" resultMap="resultListFeedback">
+		SELECT * FROM feedback f 
+		INNER JOIN user u 
+		ON f.userId=u.id
+	</select>
+
+	<resultMap type="com.haike.web.entity.Feedback" id="resultListFeedback">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="userId" property="userId" />
+		<result column="email" property="email" />
+		<result column="title" property="title" />
+		<result column="content" property="content" />
+		<result column="createTime" property="createTime" />
+		<result column="removed" property="removed" />
+		<association javaType="com.haike.web.entity.UserInfo" property="user">
+			<id column="id" property="id"/>
+			<result column="userName" property="userName" />
+			<result column="password" property="password" />
+			<result column="email" property="email" />
+			<result column="createTime" property="createTime" />
+		</association>
+	</resultMap>
+	
+</mapper>  
