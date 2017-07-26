@@ -17,32 +17,30 @@ import com.haike.web.entity.Feedback;
 import com.haike.web.entity.response.ResponseVo;
 import com.haike.web.entity.response.Status;
 import com.haike.web.service.FeedbackService;
+import com.haike.web.service.MenuService;
 import com.haike.web.util.StringUtils;
 
 /**
- * @author xiaoming 反馈信息
+ * @author xiaoming 导航菜单
  */
 @Controller
-@RequestMapping("feedback")
-public class FeedbackAction {
-	private static Logger logger = Logger.getLogger(FeedbackAction.class);
+@RequestMapping("menu")
+public class MenuAction {
+	private static Logger logger = Logger.getLogger(MenuAction.class);
 
 	@Autowired
-	FeedbackService feedbackService;
+	MenuService menuService;
 
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseVo add(HttpServletRequest request, HttpServletResponse response) {
 		ResponseVo res = new ResponseVo();
-		String userId = request.getParameter("userId");
-		String name = request.getParameter("name");
-		String email = request.getParameter("email");
 		String title = request.getParameter("title");
-		String content = request.getParameter("content");
-		logger.debug("UserAction login userId=" + userId + ",name=" + name + ",email=" + email + ",title=" + title
-				+ ",content=" + content);
-		if (StringUtils.isEmpty(title) || StringUtils.isEmpty(content)) {
+		String describe = request.getParameter("describe");
+		String level = request.getParameter("level");
+		logger.debug("UserAction login title=" + title + ",describe=" + describe + ",level=" + level);
+		if (StringUtils.isEmpty(title) || StringUtils.isEmpty(level)) {
 			response.setStatus(Status.BAD_REQUEST.getCode());
 			res.setCode(Status.BAD_REQUEST.getCode());
 			res.setMessage(Status.BAD_REQUEST.getMessage());
@@ -54,7 +52,7 @@ public class FeedbackAction {
 			res.setMessage(Status.BAD_REQUEST_PARAMS.getMessage() + ",邮箱格式不正确");
 			return res;
 		}
-		int addFeedbackStatus = feedbackService.addFeedback(name, userId, email, title, content);
+		int addFeedbackStatus = menuService.addFeedback(name, userId, email, title, content);
 		switch (addFeedbackStatus) {
 		case FeedbackService.STATUS_ADD_SUCCESS:
 			res.setCode(Status.OK.getCode());
@@ -82,7 +80,7 @@ public class FeedbackAction {
 			return res;
 		}
 
-		Feedback feedback = feedbackService.queryFeedbackById(id);
+		Feedback feedback = menuService.queryFeedbackById(id);
 		if (feedback == null) {
 			response.setStatus(Status.BAD_REQUEST_PARAMS.getCode());
 			res.setCode(Status.BAD_REQUEST_PARAMS.getCode());
@@ -99,7 +97,7 @@ public class FeedbackAction {
 	@ResponseBody
 	public ResponseVo<List<Feedback>> getAll(HttpServletRequest request, HttpServletResponse response) {
 		ResponseVo<List<Feedback>> res = new ResponseVo<List<Feedback>>();
-		List<Feedback> queryFeedbacks = feedbackService.queryFeedbacks();
+		List<Feedback> queryFeedbacks = menuService.queryFeedbacks();
 		if(queryFeedbacks == null){
 			queryFeedbacks = new ArrayList<Feedback>();
 		}
@@ -122,7 +120,7 @@ public class FeedbackAction {
 			res.setMessage(Status.BAD_REQUEST.getMessage());
 			return res;
 		}
-		int result = feedbackService.deleteFeedback(id);
+		int result = menuService.deleteFeedback(id);
 		switch (result) {
 		case FeedbackService.STATUS_DELETE_SUCCESS:
 			res.setCode(Status.OK.getCode());

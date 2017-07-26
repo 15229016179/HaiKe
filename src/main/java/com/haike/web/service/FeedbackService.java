@@ -9,9 +9,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.haike.web.dao.FeedbackDao;
-import com.haike.web.dao.UserDao;
 import com.haike.web.entity.Feedback;
-import com.haike.web.entity.UserInfo;
 
 /**
  * @author xiaoming
