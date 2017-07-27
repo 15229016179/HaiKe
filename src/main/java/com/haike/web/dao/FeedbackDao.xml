@@ -26,16 +26,11 @@
 	<!-- ############################## -->
 
 	<select id="queryFeedbackById" parameterType="String" resultMap="resultListFeedback">
-		SELECT * FROM feedback f 
-		INNER JOIN user u 
-		ON f.userId=u.id
-		WHERE f.id=#{id} 
+		CALL temp_feedback(#{id});
 	</select>
 
 	<select id="queryFeedbacks" resultMap="resultListFeedback">
-		SELECT * FROM feedback f 
-		INNER JOIN user u 
-		ON f.userId=u.id
+		CALL temp_feedback(NULL);
 	</select>
 
 	<resultMap type="com.haike.web.entity.Feedback" id="resultListFeedback">
@@ -48,11 +43,11 @@
 		<result column="createTime" property="createTime" />
 		<result column="removed" property="removed" />
 		<association javaType="com.haike.web.entity.UserInfo" property="user">
-			<id column="id" property="id"/>
+			<id column="id_u" property="id"/>
 			<result column="userName" property="userName" />
 			<result column="password" property="password" />
-			<result column="email" property="email" />
-			<result column="createTime" property="createTime" />
+			<result column="email_u" property="email" />
+			<result column="createTime_u" property="createTime" />
 		</association>
 	</resultMap>
 	

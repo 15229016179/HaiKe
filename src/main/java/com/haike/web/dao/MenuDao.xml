@@ -8,8 +8,8 @@
 
 	<insert id="addMenu" parameterType="com.haike.web.entity.Menu">
 		INSERT INTO
-		menu(id,title,describe,level,pid,createTime,removed)
-		VALUE(#{id},#{title},#{describe},#{level},#{pid},#{createTime},#{removed})
+		menu
+		VALUES(#{id},#{title},#{describe},#{level},#{pid},#{createTime},#{removed})
 	</insert>
 
 	<!-- ############################## -->
@@ -27,31 +27,30 @@
 	<!-- ############################## -->
 
 	<select id="queryMenuById" parameterType="String" resultMap="resultListMenu">
-		SELECT * FROM menu m
-		WHERE m.id=#{id}
-		
-		select * from TBL_TEST start with id=1 connect by prior id = pid
+		CALL temp_menu(#{id});
 	</select>
 
 	<select id="queryMenus" resultMap="resultListMenu">
-		SELECT * FROM menu m START WITH id=1 connect by prior id = pid
+		CALL temp_menu(null);
 	</select>
 
 	<resultMap type="com.haike.web.entity.Menu" id="resultListMenu">
 		<id column="id" property="id" />
 		<result column="title" property="title" />
-		<result column="level" property="level" />
-		<result column="describe" property="describe" />
+		<result column="m_level" property="level" />
+		<result column="m_describe" property="describe" />
+		<result column="pid" property="pid" />
 		<result column="createTime" property="createTime" />
 		<result column="removed" property="removed" />
-		<association javaType="com.haike.web.entity.Menu" property="menu">
-			<id column="id" property="id" />
-			<result column="title" property="title" />
-			<result column="level" property="level" />
-			<result column="describe" property="describe" />
-			<result column="createTime" property="createTime" />
-			<result column="removed" property="removed" />
-		</association>
+		<collection javaType="java.util.ArrayList" ofType="com.haike.web.entity.Menu" property="menus">
+			<id column="id_c" property="id" />
+			<result column="title_c" property="title" />
+			<result column="level_c" property="level" />
+			<result column="describe_c" property="describe" />
+			<result column="pid_c" property="pid" />
+			<result column="createTime_c" property="createTime" />
+			<result column="removed_c" property="removed" />
+		</collection>
 	</resultMap>
 
 </mapper>  

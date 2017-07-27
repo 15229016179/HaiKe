@@ -40,7 +40,7 @@ public class FeedbackAction {
 		String email = request.getParameter("email");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		logger.debug("UserAction login userId=" + userId + ",name=" + name + ",email=" + email + ",title=" + title
+		logger.debug("FeedbackService add userId=" + userId + ",name=" + name + ",email=" + email + ",title=" + title
 				+ ",content=" + content);
 		if (StringUtils.isEmpty(title) || StringUtils.isEmpty(content)) {
 			response.setStatus(Status.BAD_REQUEST.getCode());
@@ -74,7 +74,7 @@ public class FeedbackAction {
 	public ResponseVo<Feedback> get(HttpServletRequest request, HttpServletResponse response) {
 		ResponseVo<Feedback> res = new ResponseVo<Feedback>();
 		String id = request.getParameter("id");
-		logger.debug("UserAction changePasswd id=" + id);
+		logger.debug("FeedbackService get id=" + id);
 		if (StringUtils.isEmpty(id)) {
 			response.setStatus(Status.BAD_REQUEST.getCode());
 			res.setCode(Status.BAD_REQUEST.getCode());
@@ -98,6 +98,7 @@ public class FeedbackAction {
 	@RequestMapping(value = "/getAll", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseVo<List<Feedback>> getAll(HttpServletRequest request, HttpServletResponse response) {
+		logger.debug("FeedbackService getAll");
 		ResponseVo<List<Feedback>> res = new ResponseVo<List<Feedback>>();
 		List<Feedback> queryFeedbacks = feedbackService.queryFeedbacks();
 		if(queryFeedbacks == null){
@@ -114,7 +115,7 @@ public class FeedbackAction {
 	@ResponseBody
 	public ResponseVo remove(HttpServletRequest request, HttpServletResponse response) {
 		String id = request.getParameter("id");
-		logger.debug("UserAction changePasswd id=" + id);
+		logger.debug("FeedbackService del id=" + id);
 		ResponseVo res = new ResponseVo();
 		if (StringUtils.isEmpty(id)) {
 			response.setStatus(Status.BAD_REQUEST.getCode());

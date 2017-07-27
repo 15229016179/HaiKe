@@ -32,14 +32,16 @@ public class MenuService {
 	 * @param title
 	 * @param describe
 	 * @param level
+	 * @param pid
 	 * @return
 	 */
-	public int addMenu(String title, String describe, int level) {
+	public int addMenu(String title, String describe, int level, String pid) {
 		Menu menu = new Menu();
 		menu.setId(UUID.randomUUID().toString());
 		menu.setTitle(title);
 		menu.setDescribe(describe);
 		menu.setLevel(level);
+		menu.setPid(pid);
 		menu.setCreateTime(new Date());
 		int result = menuDao.addMenu(menu);
 		if (result == 1)
@@ -77,7 +79,7 @@ public class MenuService {
 	 * 
 	 * @return
 	 */
-	public List<Menu> queryFeedbacks() {
+	public List<Menu> queryMenus() {
 		return menuDao.queryMenus();
 	}
 

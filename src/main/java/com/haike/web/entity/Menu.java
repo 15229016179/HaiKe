@@ -1,6 +1,7 @@
 package com.haike.web.entity;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author xiaoming
@@ -14,7 +15,7 @@ public class Menu extends IdEntity {
 	private String pid; // 父级菜单id
 	private Date createTime;
 	private boolean removed;
-	private Menu menu; // 下一级别菜单
+	private List<Menu> menus; // 下一级别菜单
 
 	public String getTitle() {
 		return title;
@@ -48,12 +49,12 @@ public class Menu extends IdEntity {
 		this.describe = describe;
 	}
 
-	public Menu getMenu() {
-		return menu;
+	public List<Menu> getMenus() {
+		return menus;
 	}
 
-	public void setMenu(Menu menu) {
-		this.menu = menu;
+	public void setMenus(List<Menu> menus) {
+		this.menus = menus;
 	}
 
 	public Date getCreateTime() {
