@@ -26,6 +26,7 @@
     <script src="js/responsiveslides.min.js"></script>
     <script src="js/js_other.js" type="application/x-javascript"></script>
     <script src="js/index_init.js" type="application/x-javascript"></script>
+    <script src="js/share.js" type="application/x-javascript"></script>
     <!-- slider -->
     <!--/js-->
 </head>
@@ -128,19 +129,15 @@
                                 <form>
                                     <div class="category">
                                         <span>选择类目：</span>
-                                        <select data-placeholder="一级分类" class="select one" id="category_one">
-                                            <option value="视频">视频</option>
-                                            <option value="图片">图片</option>
+                                        <select data-placeholder="一级分类" class="select one" id="category_one" onchange="menuChange(getSelected())">
                                         </select>
                                         <select data-placeholder="二级分类" class="select two" id="category_two">
-                                            <option value="电影电视">电影电视</option>
-                                            <option value="搞笑视频">搞笑视频</option>
                                         </select>
                                     </div>
                                     <input id="share_url" type="text" maxlength="50" placeholder="资源网站链接地址" required="">
                                     <input id="share_title" type="text" maxlength="50" placeholder="请输入标题" required="">
-                                    <textarea id="share_content" maxlength="100" placeholder="请输入内容描述，字数不得大于100字" required=""></textarea>
-                                    <input type="submit" value="提交分享">
+                                    <textarea id="share_content" maxlength="100" placeholder="请输入推荐理由，字数不得大于100字" required=""></textarea>
+                                    <input type="submit" value="提交分享" onclick="submitShare()">
                                 </form>
                             </div>
                         </div>
