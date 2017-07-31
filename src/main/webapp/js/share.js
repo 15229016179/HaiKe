@@ -81,12 +81,19 @@ function submitShare(){
         Toast('请输入推荐理由', 3000)
         return;
     }
+    var user = localStorage.getItem('user');
+    var userId = '';
+    if (user != '') {
+        user = JSON.parse(user);
+        userId = user.id;
+    }
     $.ajax({
         url: "./app/share/add",
         type: "post",
         data: {
+        	userId: userId,
             menuId: menuId,
-            targetUrl: share_url,
+            link: share_url,
             title: share_title,
             content: share_content
         },

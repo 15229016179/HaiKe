@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haike.web.dao.ShareDao">
+
+	<!-- ############################## -->
+	<!-- ###### 增加 ###### -->
+	<!-- ############################## -->
+
+	<insert id="addShare" parameterType="com.haike.web.entity.Share">
+		INSERT INTO
+		share
+		VALUES(#{id},#{menuId},#{link},#{imgUrl},#{title},#{content},#{userId},#{createTime},#{removed})
+	</insert>
+
+	<!-- ############################## -->
+	<!-- ###### 删除 ###### -->
+	<!-- ############################## -->
+
+	<delete id="deleteShare" parameterType="String">
+		DELETE FROM share
+		WHERE id=#{id}
+	</delete>
+
+	<!-- ############################## -->
+	<!-- ###### id查询 ###### -->
+	<!-- ############################## -->
+
+	<select id="queryShareById" parameterType="String" resultMap="resultListShare">
+		CALL temp_share(#{id});
+	</select>
+
+	<select id="queryShares" resultMap="resultListShare">
+		CALL temp_share(NULL);
+	</select>
+	
+	<select id="querySharesByMenuId" parameterType="String" resultMap="resultListShare">
+		CALL temp_share_menu(#{menuId});
+	</select>
+
+	<resultMap type="com.haike.web.entity.Share" id="resultListShare">
+		<id column="id" property="id" />
+		<result column="menuId" property="menuId" />
+		<result column="link" property="link" />
+		<result column="imgUrl" property="imgUrl" />
+		<result column="title" property="title" />
+		<result column="content" property="content" />
+		<result column="userId" property="userId" />
+		<result column="createTime" property="createTime" />
+		<result column="removed" property="removed" />
+		<association javaType="com.haike.web.entity.UserInfo" property="user">
+			<id column="id_u" property="id"/>
+			<result column="userName" property="userName" />
+			<result column="password" property="password" />
+			<result column="email_u" property="email" />
+			<result column="createTime_u" property="createTime" />
+		</association>
+		<association javaType="com.haike.web.entity.Menu" property="menu">
+			<id column="id_m" property="id"/>
+			<result column="title_m" property="title" />
+			<result column="describe_m" property="describe" />
+			<result column="level_m" property="level" />
+			<result column="createTime_m" property="createTime" />
+			<result column="removed_m" property="removed" />
+		</association>
+	</resultMap>
+	
+</mapper>  

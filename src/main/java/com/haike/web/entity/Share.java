@@ -8,21 +8,17 @@ import java.util.Date;
  * @tags 信息分享
  */
 public class Share extends IdEntity {
-	private String name;
 	private String userId;
-	private String email;
+	private String menuId;
+	private String link;
+	private String imgUrl;
 	private String title;
 	private String content;
 	private Date createTime;
 	private boolean removed;
+	private Menu menu;
 	private UserInfo user;
 	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	public String getUserId() {
 		return userId;
 	}
@@ -34,12 +30,6 @@ public class Share extends IdEntity {
 	}
 	public void setUser(UserInfo user) {
 		this.user = user;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
 	}
 	public String getTitle() {
 		return title;
@@ -64,6 +54,30 @@ public class Share extends IdEntity {
 	}
 	public void setRemoved(boolean removed) {
 		this.removed = removed;
+	}
+	public String getMenuId() {
+		return menuId;
+	}
+	public void setMenuId(String menuId) {
+		this.menuId = menuId;
+	}
+	public String getLink() {
+		return link;
+	}
+	public void setLink(String link) {
+		this.link = link;
+	}
+	public String getImgUrl() {
+		return imgUrl;
+	}
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+	public Menu getMenu() {
+		return menu;
+	}
+	public void setMenu(Menu menu) {
+		this.menu = menu;
 	}
 	
 }
