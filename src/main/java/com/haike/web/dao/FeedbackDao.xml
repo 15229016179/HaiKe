@@ -2,28 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haike.web.dao.FeedbackDao">
 
-	<!-- ############################## -->
-	<!-- ###### 增加 ###### -->
-	<!-- ############################## -->
-
 	<insert id="addFeedback" parameterType="com.haike.web.entity.Feedback">
 		INSERT INTO
 		feedback(id,name,userId,email,title,content,createTime,removed)
 		VALUE(#{id},#{name},#{userId},#{email},#{title},#{content},#{createTime},#{removed})
 	</insert>
 
-	<!-- ############################## -->
-	<!-- ###### 删除 ###### -->
-	<!-- ############################## -->
-
-	<delete id="deleteFeedback" parameterType="String">
-		DELETE FROM feedback
+	<update id="deleteFeedback" parameterType="String">
+		UPDATE feedback 
+		SET removed=TRUE
 		WHERE id=#{id}
-	</delete>
-
-	<!-- ############################## -->
-	<!-- ###### id查询 ###### -->
-	<!-- ############################## -->
+	</update>
 
 	<select id="queryFeedbackById" parameterType="String" resultMap="resultListFeedback">
 		CALL temp_feedback(#{id});

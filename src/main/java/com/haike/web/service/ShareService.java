@@ -8,12 +8,13 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.haike.web.dao.FeedbackDao;
-import com.haike.web.entity.Feedback;
+import com.haike.web.dao.ShareDao;
+import com.haike.web.entity.Share;
+import com.haike.web.util.StringUtils;
 
 /**
  * @author xiaoming
- * @tags	热点分享service
+ * @tags 热点分享service
  */
 @Service
 public class ShareService {
@@ -22,30 +23,35 @@ public class ShareService {
 	public static final int STATUS_ADD_FAILED_DB = 204;
 	public static final int STATUS_DELETE_SUCCESS = 211;
 	public static final int STATUS_DELETE_FAILED_DB = 212;
+	public static final int STATUS_DELETE_FAILED_INEXISTENCE = 213;
+	public static final int STATUS_UPDATE_FAILED_INEXISTENCE = 302;
+	public static final int STATUS_UPDATE_SUCCESS = 303;
+	public static final int STATUS_UPDATE_FAILED_DB = 304;
 
 	@Resource
-	private FeedbackDao feedbackDao;
+	private ShareDao shareDao;
 
 	/**
-	 * 增加反馈信息
+	 * 新增分享热门站点信息
 	 * 
-	 * @param name
+	 * @param menuId
 	 * @param userId
-	 * @param email
+	 * @param link
 	 * @param title
 	 * @param content
 	 * @return
 	 */
-	public int addFeedback(String name, String userId, String email, String title, String content) {
-		Feedback feedback = new Feedback();
-		feedback.setId(UUID.randomUUID().toString());
-		feedback.setName(name);
-		feedback.setUserId(userId);
-		feedback.setEmail(email);
-		feedback.setTitle(title);
-		feedback.setContent(content);
-		feedback.setCreateTime(new Date());
-		int result = feedbackDao.addFeedback(feedback);
+	public int addShare(String menuId, String userId, String link, String title, String content) {
+		Share share = new Share();
+		share.setId(UUID.randomUUID().toString());
+		share.setMenuId(menuId);
+		share.setUserId(userId);
+		share.setLink(link);
+		share.setTitle(title);
+		share.setContent(content);
+		share.setCreateTime(new Date());
+		share.setUpdateTime(new Date());
+		int result = shareDao.addShare(share);
 		if (result == 1)
 			return STATUS_ADD_SUCCESS;
 		else
@@ -53,13 +59,16 @@ public class ShareService {
 	}
 
 	/**
-	 * 删除一条反馈
+	 * 删除一条分享信息
 	 * 
 	 * @param id
 	 * @return
 	 */
-	public int deleteFeedback(String id) {
-		int result = feedbackDao.deleteFeedback(id);
+	public int deleteShare(String id) {
+		Share queryShareById = queryShareById(id);
+		if(queryShareById == null)
+			return STATUS_DELETE_FAILED_INEXISTENCE;
+		int result = shareDao.deleteShare(id);
 		if (result == 1)
 			return STATUS_DELETE_SUCCESS;
 		else
@@ -67,22 +76,51 @@ public class ShareService {
 	}
 
 	/**
-	 * 通过用户id查询反馈信息
+	 * 更新用户信息
+	 * 
+	 * @param id
+	 * @param menuId
+	 * @param userId
+	 * @param link
+	 * @param imgUrl
+	 * @param title
+	 * @param content
+	 * @return
+	 */
+	public int updateShare(Share share) {
+		int result = shareDao.updateShare(share);
+		if (result == 1)
+			return STATUS_UPDATE_SUCCESS;
+		else
+			return STATUS_UPDATE_FAILED_DB;
+	}
+
+	/**
+	 * 通过用户id查询
 	 * 
 	 * @param id
 	 * @return
 	 */
-	public Feedback queryFeedbackById(String id) {
-		return feedbackDao.queryFeedbackById(id);
+	public Share queryShareById(String id) {
+		return shareDao.queryShareById(id);
 	}
 
 	/**
-	 * 查询所有反馈信息
+	 * 通过menuId查询
 	 * 
 	 * @return
 	 */
-	public List<Feedback> queryFeedbacks() {
-		return feedbackDao.queryFeedbacks();
+	public List<Share> querySharesByMenuId(String menuId) {
+		return shareDao.querySharesByMenuId(menuId);
+	}
+
+	/**
+	 * 查询所有
+	 * 
+	 * @return
+	 */
+	public List<Share> queryShares() {
+		return shareDao.queryShares();
 	}
 
 }

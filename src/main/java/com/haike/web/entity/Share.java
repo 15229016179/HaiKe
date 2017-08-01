@@ -15,6 +15,7 @@ public class Share extends IdEntity {
 	private String title;
 	private String content;
 	private Date createTime;
+	private Date updateTime;
 	private boolean removed;
 	private Menu menu;
 	private UserInfo user;
@@ -48,6 +49,12 @@ public class Share extends IdEntity {
 	}
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
+	}
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 	public boolean isRemoved() {
 		return removed;

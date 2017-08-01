@@ -2,36 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haike.web.dao.ConfigDao">
 	
-	<!-- ############################## -->
-	<!-- ######        增加                      ###### -->
-	<!-- ############################## -->
-	
 	<insert id="addConfig" parameterType="com.haike.web.entity.Config">
 		insert into
 		config(key,value,createTime)
 		value(#{key},#{value},#{createTime})
 	</insert>
-	
-	<!-- ############################## -->
-	<!-- ######       删除                         ###### -->
-	<!-- ############################## -->
 		
 	<delete id="deleteConfig" parameterType="com.haike.web.entity.Config">
 		delete from config where key=#{key}
 	</delete>
 	
-	<!-- ############################## -->
-	<!-- ######       修改                         ###### -->
-	<!-- ############################## -->
-	
 	<update id="updateConfig" parameterType="com.haike.web.entity.Config">
 		update config set value=#{value}
 		where key=#{key}
 	</update>
-	
-	<!-- ############################## -->
-	<!-- ######       查询                         ###### -->
-	<!-- ############################## -->
 		
 	<select id="getConfigByKey" resultType="com.haike.web.entity.Config">
 		select * from config where key=#{key}

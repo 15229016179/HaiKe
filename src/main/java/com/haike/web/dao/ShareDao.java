@@ -16,6 +16,8 @@ public interface ShareDao {
 	public int addShare(Share share);
 
 	public int deleteShare(@Param("id") String id);
+	
+	public int updateShare(Share share);
 
 	public Share queryShareById(@Param("id") String id);
 	
