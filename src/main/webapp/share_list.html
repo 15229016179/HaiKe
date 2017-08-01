@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>嗨客网|关于我们</title>
+    <title id="title_list">嗨客网|视频-电影电视</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="嗨,嗨客网,嗨客,分享,好站点,高清电影下载,院线电影下载,记录,视频,在线视频,高清剧集下载,直播,邮件群发,营销工具,工具,美女图片,热门网站"/>
@@ -26,6 +26,7 @@
     <script src="js/responsiveslides.min.js"></script>
     <script src="js/js_other.js" type="application/x-javascript"></script>
     <script src="js/index_init.js" type="application/x-javascript"></script>
+    <script src="js/share_list.js" type="application/x-javascript"></script>
     <!-- slider -->
     <!--/js-->
 </head>
@@ -42,16 +43,17 @@
                     <li class="dropdown1"><a href="#">帮助反馈</a>
                         <ul class="dropdown2">
                             <li><a href="help.html">使用帮助</a></li>
-                            <li><a href="">问题反馈</a></li>
+                            <li><a href="about.html">问题反馈</a></li>
                         </ul>
                     </li>
                     <li class="dropdown1"><a href="share.html">资源分享</a>
                     </li>
-                    <li><a href="">关于我们</a></li>
+                    <li><a href="about.html">关于我们</a></li>
                 </ul>
             </div>
             <div class="nav-right">
-                <p><a href="login.html">登录</a> | <a href="login.html">注册</a></p>
+                <p id="login"><a href="login.html">登录</a> | <a href="login.html">注册</a></p>
+                <p id="user"></p>
             </div>
             <div class="clearfix"></div>
             <!-- script-for-menu -->
@@ -72,7 +74,7 @@
 <!-- //header -->
 <!-- bg-banner -->
 <div class="bg-banner">
-    <div class="banner-bottom-bg contact-bg">
+    <div class="banner-bottom-bg share_list-bg">
         <div class="banner-bg">
             <div class="container">
                 <!-- banner -->
@@ -122,43 +124,42 @@
                             </script>
                         </div>
                         <div class="banner-middle">
-                            <!-- contact -->
-                            <div class="contact">
-                                <div class="mail-info-grids">
-                                    <div class="col-md-6 about">
-                                        <h3>关于嗨客网</h3>
+                            <div class="strip"></div>
 
-                                        <p>嗨客网致力于为广大网民提供全网热门网站分享，包括线上热门视频、电影、剧集、图片、工具等资源分享，
-                                            最新的热门网站咨询，提供生活娱乐服务的论坛社区。
-                                        </p>
+                            <!-- banner-bottom-grids -->
+                            <div class="banner-bottom-grids">
+                                <!-- banner-bottom-left -->
+                                <div class="banner-bottom-left">
+                                    <!-- post -->
+                                    <div class="post" id="list">
+                                        <h3>视频-电影电视</h3>
 
-                                        <p>嗨客网只收录在互联网中具有影响力的优质资源站点，热门视频网站为您提供院线同步大片，网络
-                                        剧集同步等海量片源，精彩网络直播，超清图片资源，实用工具等，其他生活服务也均为优质站点资源。</p>
+                                        <div class="post-grids">
+                                            <div class="col-md-4 post-left">
+                                                <a href="single.html"><img src="images/p1.jpg" alt=""/></a>
+                                            </div>
+                                            <div class="col-md-8 post-right share_list-left">
+                                                <h4><a href="single.html">Silicon Valley Shows Signs of Dot-Com
+                                                    Frenzy</a></h4>
 
-                                        <p>嗨客网所有站点资源均来自网民分享，若侵犯到您或您组织的合法权益，请与我们联系，我们将尽快核实并处理。
-                                        </p>
-                                        <h6>感谢您关注嗨客网，欢迎注册会员，加入嗨客网，并分享您认为热门、有趣或实用的站点到嗨客网。
-                                            <span>————————————————————————————————</span>
-                                            <span>点滴分享，成就精彩</span>
-                                        </h6>
+                                                <p class="comments">August 4 2010, <a href="#">8 Comments</a></p>
 
-                                        <p>
-                                            E-mail: <a href="mailto:web@haikeapp.com">web@haikeapp.com</a>
-                                        </p>
+                                                <p class="text">Lorem ipsum ex vix illud nonummy, novum tation et his.
+                                                    At vix scripta patrioque scribentur
+                                                    Lorem ipsum ex vix illud nonummy, novum tation et his. At vix
+                                                    scripta patrioque scribentur...</p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
                                     </div>
-                                    <div class="col-md-6 contact-form">
-                                        <form>
-                                            <input type="text" placeholder="姓名" required="">
-                                            <input type="text" placeholder="邮箱" required="">
-                                            <input type="text" placeholder="主题" required="">
-                                            <textarea placeholder="描述" required=""></textarea>
-                                            <input type="button" value="发送">
-                                        </form>
-                                    </div>
-                                    <div class="clearfix"></div>
+                                    <!-- //post -->
+                                </div>
+                                <!-- //banner-bottom-left -->
+                                <div class="up-arrow">
+                                    <a class="scroll" href="#home">返回顶部</a>
                                 </div>
                             </div>
-                            <!-- //contact -->
+                            <!-- //banner-bottom-grids -->
                         </div>
                     </div>
                 </div>
@@ -229,7 +230,7 @@
         </li>
 
         <li>
-            <a href="">
+            <a href="about.html">
                 <img src="images/index_btn/ll03.png" width="47" height="49" class="hides">
                 <img src="images/index_btn/l03.png" width="47" height="49" class="shows">
             </a>
@@ -253,5 +254,6 @@
     </ul>
 </div>
 <!--leftsead end-->
+</div>
 </body>
 </html>

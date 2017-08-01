@@ -404,16 +404,16 @@ body a {
 
 /*-- post --*/
 .post {
-    margin: 3em 0 0 0;
+    margin: 2em 0 0 0;
 }
 
 .post h3 {
     color: #444444;
-    font-size: 16px;
+    font-size: 22px;
     margin: 0;
     font-family: 'native_font';
-    font-style: italic;
     position: relative;
+    left: 30px;
 }
 
 .post h3:after {
@@ -428,8 +428,8 @@ body a {
 }
 
 .post-grids {
-    margin: 2em 0;
-    padding-bottom: 2em;
+    margin: 1em 0;
+    padding-bottom: 1em;
     border-bottom: 1px solid #F2F2F2;
 }
 
@@ -1155,7 +1155,7 @@ body a {
     -webkit-appearance: none;
 }
 
-.contact-form input[type="submit"] {
+.contact-form input[type="button"] {
     border: none;
     outline: none;
     color: #FFF;
@@ -1168,7 +1168,7 @@ body a {
     background: #666666;
 }
 
-.contact-form input[type="submit"]:hover {
+.contact-form input[type="button"]:hover {
     background: #e47600
 }
 
@@ -1200,7 +1200,7 @@ body a {
     -webkit-appearance: none;
 }
 
-.share input[type="submit"] {
+.share input[type="button"] {
     border: none;
     outline: none;
     color: #FFF;
@@ -1213,7 +1213,7 @@ body a {
     background: #666666;
 }
 
-.share input[type="submit"]:hover {
+.share input[type="button"]:hover {
     background: #e47600
 }
 
@@ -1319,7 +1319,7 @@ body a {
     -webkit-appearance: none;
 }
 
-.respond input[type="submit"] {
+.respond input[type="button"] {
     border: none;
     outline: none;
     color: #FFF;
@@ -1332,7 +1332,7 @@ body a {
     background: #666666;
 }
 
-.respond input[type="submit"]:hover {
+.respond input[type="button"]:hover {
     background: #e47600
 }
 
@@ -1385,8 +1385,8 @@ span.menu {
     padding-left: 1.5em;
 }
 
-/*-- fullwidth --*/
-.fullwidth-bg {
+/*-- share_list --*/
+.share_list-bg {
     min-height: 151em;
 }
 
@@ -1428,7 +1428,7 @@ span.menu {
         min-height: 132em !important;
     }
 
-    .fullwidth-bg {
+    .share_list-bg {
         min-height: 138em !important;
     }
 
@@ -1560,11 +1560,11 @@ span.menu {
         min-height: 186em !important;
     }
 
-    .fullwidth-left-grid:nth-child(3) {
+    .share_list-left-grid:nth-child(3) {
         display: none;
     }
 
-    .fullwidth-bg {
+    .share_list-bg {
         min-height: 135em !important;
     }
 
@@ -1644,11 +1644,11 @@ span.menu {
         font-size: 12px;
     }
 
-    .fullwidth-left p.comments {
+    .share_list-left p.comments {
         margin: .5em 0;
     }
 
-    .fullwidth-left p.text {
+    .share_list-left p.text {
         overflow: hidden;
         height: 38px;
     }
@@ -1869,7 +1869,7 @@ span.menu {
 
     .post h3:after {
         width: 73%;
-        left: 27%;
+        left: 50%;
     }
 
     .plain {
@@ -2126,11 +2126,11 @@ span.menu {
         min-height: 194em !important;
     }
 
-    .fullwidth-bg {
+    .share_list-bg {
         min-height: 141em !important;
     }
 
-    .fullwidth-left-grid:nth-child(2) {
+    .share_list-left-grid:nth-child(2) {
         display: none;
     }
 

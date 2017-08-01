@@ -100,7 +100,7 @@ function submitShare(){
         dataType: "json",
         success: function (data, status, res) {
             if (data.code == 200) {
-                Toast(data.message, 3000)
+                Toast(data.message + ",感谢您的分享！", 3000)
             }else{
                 Toast('请稍后重试', 3000)
             }
