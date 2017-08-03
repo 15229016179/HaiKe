@@ -11,6 +11,8 @@ var menus = [{
 
 window.onload = function () {
 
+    initMenu();
+
     $.ajax({
         url: "./app/menu/getAll",
         type: "get",

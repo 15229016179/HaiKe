@@ -1,5 +1,7 @@
 window.onload = function () {
 
+    initMenu();
+
     var menuId = localStorage.getItem('menuId');
     $.ajax({
         url: "./app/share/getByMenuId",
@@ -47,7 +49,7 @@ function activeItemHtml(share){
     var html =
         '<div class="post-grids">' +
             '<div class="col-md-4 post-left">' +
-                '<a href="' + link+ '"><img src="' + imgUrl + '" alt=""/></a>' +
+                '<a target="_blank" href="' + link+ '"><img src="' + imgUrl + '" alt=""/></a>' +
             '</div>' +
             '<div class="col-md-8 post-right share_list-left">' +
                 '<h4><a href="' + link + '">'+ title + '</a></h4>' +

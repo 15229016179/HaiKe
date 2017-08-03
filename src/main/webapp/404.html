@@ -24,7 +24,13 @@
     <script src="js/index_btn.js" type="text/javascript"></script>
     <!-- slider -->
     <script src="js/responsiveslides.min.js"></script>
+    <script src="js/menu_init.js" type="application/x-javascript"></script>
     <script src="js/js_other.js" type="application/x-javascript"></script>
+    <script>
+        window.onload = function () {
+            initMenu();
+        }
+    </script>
     <!-- slider -->
     <!--/js-->
 </head>
@@ -79,40 +85,7 @@
                     <div class="banner-grids">
                         <div class="banner-top">
                             <span class="menu">菜单</span>
-                            <ul class="nav banner-nav">
-                                <li></li>
-                                <li class="dropdown1"><a href="index.html">首页<span>综合推荐</span></a>
-                                </li>
-                                <li class="dropdown1"><a href="celebity.html">视频<span>热门视频站点</span></a>
-                                    <ul class="dropdown2">
-                                        <li><a href="lifstyle.html">电影电视</a></li>
-                                        <li><a href="archves.html">搞笑视频</a></li>
-                                        <li><a href="fullidth.html">其他视频</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown1"><a href="404.html">图片<span>网罗优质图片站点</span></a>
-                                    <ul class="dropdown2">
-                                        <li><a href="lifetyle.html">性感美女</a></li>
-                                        <li><a href="archves.html">桌面壁纸</a></li>
-                                        <li><a href="share_list.html">动物与自然</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown1"><a href="lifesle.html">生活<span>让生活更精彩</span></a>
-                                    <ul class="dropdown2">
-                                        <li><a href="liestyle.html">酷站</a></li>
-                                        <li><a href="lifetyle.html">直播</a></li>
-                                        <li><a href="archies.html">婚恋交友</a></li>
-                                        <li><a href="fullidth.html">其他</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown1"><a href="celebity.html">软件工具<span>发现更多好玩好用的软件</span></a>
-                                    <ul class="dropdown2">
-                                        <li><a href="lifstyle.html">营销软件</a></li>
-                                        <li><a href="archves.html">娱乐软件</a></li>
-                                        <li><a href="fullwdth.html">其他软件</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <ul class="nav banner-nav" id="nav-menu"></ul>
                             <script>
                                 $("span.menu").click(function () {
                                     $("ul.nav").slideToggle("slow", function () {

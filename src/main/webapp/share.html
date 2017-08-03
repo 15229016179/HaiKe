@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>嗨客网|关于我们</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="嗨,嗨客网,嗨客,分享,好站点,高清电影下载,院线电影下载,记录,视频,在线视频,高清剧集下载,直播,邮件群发,营销工具,工具,美女图片,热门网站"/>
     <link rel="shortcut icon" type="image/x-icon" href="images/hai_logo_small.png" media="screen"/>
@@ -25,7 +25,7 @@
     <!-- slider -->
     <script src="js/responsiveslides.min.js"></script>
     <script src="js/js_other.js" type="application/x-javascript"></script>
-    <script src="js/index_init.js" type="application/x-javascript"></script>
+    <script src="js/menu_init.js" type="application/x-javascript"></script>
     <script src="js/share.js" type="application/x-javascript"></script>
     <!-- slider -->
     <!--/js-->
@@ -81,40 +81,7 @@
                     <div class="banner-grids">
                         <div class="banner-top">
                             <span class="menu">菜单</span>
-                            <ul class="nav banner-nav">
-                                <li></li>
-                                <li class="dropdown1"><a href="index.html">首页<span>综合推荐</span></a>
-                                </li>
-                                <li class="dropdown1"><a href="celebity.html">视频<span>热门视频站点</span></a>
-                                    <ul class="dropdown2">
-                                        <li><a href="lifestyl.html">电影电视</a></li>
-                                        <li><a href="archive.html">搞笑视频</a></li>
-                                        <li><a href="fullwidt.html">其他视频</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown1"><a href="404.html">图片<span>网罗优质图片站点</span></a>
-                                    <ul class="dropdown2">
-                                        <li><a href="lifestyl.html">性感美女</a></li>
-                                        <li><a href="archive.html">桌面壁纸</a></li>
-                                        <li><a href="fullwidh.html">动物与自然</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown1"><a href="lifesyle.html">生活<span>让生活更精彩</span></a>
-                                    <ul class="dropdown2">
-                                        <li><a href="lifestye.html">酷站</a></li>
-                                        <li><a href="lifestle.html">直播</a></li>
-                                        <li><a href="archies.html">婚恋交友</a></li>
-                                        <li><a href="fullwdth.html">其他</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown1"><a href="celebrty.html">软件工具<span>发现更多好玩好用的软件</span></a>
-                                    <ul class="dropdown2">
-                                        <li><a href="lifesyle.html">营销软件</a></li>
-                                        <li><a href="archies.html">娱乐软件</a></li>
-                                        <li><a href="fullwith.html">其他软件</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <ul class="nav banner-nav" id="nav-menu"></ul>
                             <script>
                                 $("span.menu").click(function () {
                                     $("ul.nav").slideToggle("slow", function () {

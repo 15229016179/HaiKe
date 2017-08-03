@@ -19,6 +19,7 @@ window.onload = function () {
     }
 
     initUser();
+    initMenu();
 
 };
 
@@ -31,7 +32,7 @@ function initUser() {
         document.getElementById("user").style.display = "inline";
         document.getElementById("user").innerHTML = userName + ' | <a href="#" onclick="quit()">注销</a>';
     } else {
-    	document.getElementById("user").style.display = "none";
+        document.getElementById("user").style.display = "none";
         document.getElementById("login").style.display = "inline";
     }
 }
@@ -40,4 +41,3 @@ function quit() {
     localStorage.removeItem('user')
     location.reload(true)
 }
-

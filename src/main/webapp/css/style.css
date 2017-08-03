@@ -1,12 +1,7 @@
-/*--A Design by W3layouts 
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
---*/
 body {
     background: #fff;
     font-family: 'native_font';
+    width: 100%;
 }
 
 body a {
@@ -215,7 +210,7 @@ body a {
     padding: 0.2em;
 }
 
-/*-- responsive-mediaqueries --*/
+/*-- responsive-mediaqueries --
 @media (max-width: 1024px) {
     .rslides_tabs {
         width: 77%;
@@ -274,6 +269,7 @@ body a {
         bottom: 25px;
     }
 }
+*/
 
 .strip1 {
     background: url(../images/strip3.png);
@@ -1390,7 +1386,7 @@ span.menu {
     min-height: 151em;
 }
 
-/*----responsive-start---*/
+/*----responsive-start---
 @media (max-width: 1440px) {
     .banner-left-grid h4 a {
         font-size: 12px;
@@ -2195,3 +2191,4 @@ span.menu {
         min-height: 112px;
     }
 }
+*/
