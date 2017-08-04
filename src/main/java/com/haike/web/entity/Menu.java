@@ -14,7 +14,7 @@ public class Menu extends IdEntity {
 	private int level; // 菜单级别
 	private String pid; // 父级菜单id
 	private Date createTime;
-	private Date updateTime;
+	private int no;
 	private boolean removed;
 	private List<Menu> menus; // 下一级别菜单
 
@@ -58,6 +58,14 @@ public class Menu extends IdEntity {
 		this.menus = menus;
 	}
 
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
+	}
+
 	public Date getCreateTime() {
 		return createTime;
 	}
@@ -66,14 +74,6 @@ public class Menu extends IdEntity {
 		this.createTime = createTime;
 	}
 	
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
-	}
-
 	public boolean isRemoved() {
 		return removed;
 	}

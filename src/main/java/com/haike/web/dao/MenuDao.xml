@@ -5,7 +5,7 @@
 	<insert id="addMenu" parameterType="com.haike.web.entity.Menu">
 		INSERT INTO
 		menu
-		VALUES(#{id},#{title},#{describe},#{level},#{pid},#{createTime},#{removed})
+		VALUES(#{id},#{title},#{describe},#{level},#{pid},#{createTime},#{no},#{removed})
 	</insert>
 
 	<update id="deleteMenu" parameterType="String">
@@ -29,6 +29,7 @@
 		<result column="m_describe" property="describe" />
 		<result column="pid" property="pid" />
 		<result column="createTime" property="createTime" />
+		<result column="no" property="no" />
 		<result column="removed" property="removed" />
 		<collection javaType="java.util.ArrayList" ofType="com.haike.web.entity.Menu" property="menus">
 			<id column="id_c" property="id" />
@@ -37,6 +38,7 @@
 			<result column="describe_c" property="describe" />
 			<result column="pid_c" property="pid" />
 			<result column="createTime_c" property="createTime" />
+			<result column="no_c" property="no" />
 			<result column="removed_c" property="removed" />
 		</collection>
 	</resultMap>
