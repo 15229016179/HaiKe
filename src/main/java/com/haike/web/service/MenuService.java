@@ -43,7 +43,6 @@ public class MenuService {
 		menu.setLevel(level);
 		menu.setPid(pid);
 		menu.setCreateTime(new Date());
-		menu.setUpdateTime(new Date());
 		int result = menuDao.addMenu(menu);
 		if (result == 1)
 			return STATUS_ADD_SUCCESS;

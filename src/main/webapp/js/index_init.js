@@ -20,6 +20,7 @@ window.onload = function () {
 
     initUser();
     initMenu();
+    initBanner();
 
 };
 
@@ -35,6 +36,51 @@ function initUser() {
         document.getElementById("user").style.display = "none";
         document.getElementById("login").style.display = "inline";
     }
+}
+
+function initBanner() {
+    $.ajax({
+        url: "./app/banner/getAll",
+        type: "get",
+        dataType: "json",
+        success: function (data, status, res) {
+            if (data.code == 200) {
+                if (data.result != null && data.result.length > 0) {
+                    setBanners(data.result);
+                }
+            }
+        },
+        error: function (error) {
+            var errorJson = error.responseJSON;
+            Toast(errorJson.message, 3000);
+        }
+    });
+}
+
+function setBanners(banners) {
+    var ul = document.createElement("ul");
+    ul.className = 'slider';
+    ul.id = 'slider';
+    var ul_small = document.createElement("ul");
+    ul_small.className = 'slider3-pager';
+    ul_small.id = 'slider_small';
+    document.getElementById('banner').appendChild(ul);
+    document.getElementById('banner').appendChild(ul_small);
+    var htmlStr = '';
+    var htmlSmallStr = '';
+    for (i = 0; i < banners.length; i++) {
+        var banner = banners[i];
+        htmlStr = htmlStr +
+            '<li>' +
+            '<a target="_blank" href="' + banner.link + '"><img src="' + banner.imgUrl + '"></a>' +
+            '</li>';
+        htmlSmallStr = htmlSmallStr +
+            '<li>' +
+            '<a target="_blank" href="#"><img src="' + banner.smallImgUrl + '"></a>' +
+            '</li>';
+    }
+    document.getElementById('slider').innerHTML = htmlStr;
+    document.getElementById('slider_small').innerHTML = htmlSmallStr;
 }
 
 function quit() {

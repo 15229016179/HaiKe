@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haike.web.dao.BannerDao">
+
+	<insert id="addBanner" parameterType="com.haike.web.entity.Banner">
+		INSERT INTO
+		banner
+		VALUES(#{id},#{title},#{describe},#{imgUrl},#{smallImgUrl},#{link},#{no},#{createTime},#{removed})
+	</insert>
+
+	<update id="deleteBanner" parameterType="String">
+		UPDATE banner 
+		SET removed=TRUE
+		WHERE id=#{id}
+	</update>
+
+	<select id="queryBannerById" parameterType="String" resultMap="resultListBanner">
+		SELECT * FROM banner WHERE id=#{id}
+	</select>
+
+	<select id="queryBanners" resultMap="resultListBanner">
+		SELECT * FROM banner ORDER BY no
+	</select>
+
+	<resultMap type="com.haike.web.entity.Banner" id="resultListBanner">
+		<id column="id" property="id" />
+		<result column="title" property="title" />
+		<result column="describe" property="describe" />
+		<result column="imgUrl" property="imgUrl" />
+		<result column="smallImgUrl" property="smallImgUrl" />
+		<result column="link" property="link" />
+		<result column="no" property="no" />
+		<result column="createTime" property="createTime" />
+		<result column="removed" property="removed" />
+	</resultMap>
+	
+</mapper>  

@@ -71,7 +71,7 @@
 	</bean>
 
 	<bean id="atomikosUserTransaction" class="com.atomikos.icatch.jta.UserTransactionImp">
-		<property name="transactionTimeout" value="0" />
+		<property name="transactionTimeout" value="1500" />
 	</bean>
 
 	<!-- spring 事务管理器 -->

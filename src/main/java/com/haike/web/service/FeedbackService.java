@@ -45,7 +45,6 @@ public class FeedbackService {
 		feedback.setTitle(title);
 		feedback.setContent(content);
 		feedback.setCreateTime(new Date());
-		feedback.setUpdateTime(new Date());
 		int result = feedbackDao.addFeedback(feedback);
 		if (result == 1)
 			return STATUS_ADD_SUCCESS;
