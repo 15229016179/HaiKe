@@ -58,29 +58,12 @@ function initBanner() {
 }
 
 function setBanners(banners) {
-    var ul = document.createElement("ul");
-    ul.className = 'slider';
-    ul.id = 'slider';
-    var ul_small = document.createElement("ul");
-    ul_small.className = 'slider3-pager';
-    ul_small.id = 'slider_small';
-    document.getElementById('banner').appendChild(ul);
-    document.getElementById('banner').appendChild(ul_small);
-    var htmlStr = '';
-    var htmlSmallStr = '';
     for (i = 0; i < banners.length; i++) {
         var banner = banners[i];
-        htmlStr = htmlStr +
-            '<li>' +
-            '<a target="_blank" href="' + banner.link + '"><img src="' + banner.imgUrl + '"></a>' +
-            '</li>';
-        htmlSmallStr = htmlSmallStr +
-            '<li>' +
-            '<a target="_blank" href="#"><img src="' + banner.smallImgUrl + '"></a>' +
-            '</li>';
+        document.getElementById('banner_link_' + i).href = banner.link;
+        document.getElementById('banner_img_' + i).src = banner.imgUrl;
+        document.getElementById('banner_img_small_' + i).src = banner.smallImgUrl;
     }
-    document.getElementById('slider').innerHTML = htmlStr;
-    document.getElementById('slider_small').innerHTML = htmlSmallStr;
 }
 
 function quit() {
