@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haike.web.dao.HotDao">
+
+	<insert id="addHot" parameterType="com.haike.web.entity.Hot">
+		INSERT INTO
+		hot
+		VALUES(#{id},#{shareId},#{image},#{type},#{createTime},#{removed})
+	</insert>
+
+	<update id="deleteHot" parameterType="String">
+		UPDATE hot
+		SET removed=TRUE
+		WHERE id=#{id}
+	</update>
+
+	<select id="queryHotById" parameterType="String" resultMap="resultListHot">
+		CALL temp_hot(#{id}, 0);
+	</select>
+
+	<select id="queryHotsByType" parameterType="int" resultMap="resultListHot">
+		CALL temp_hot(NULL, #{type});
+	</select>
+
+	<select id="queryHots" resultMap="resultListHot">
+		CALL temp_hot(NULL, 0);
+	</select>
+
+	<resultMap type="com.haike.web.entity.Hot" id="resultListHot">
+		<id column="id" property="id" />
+		<result column="shareId" property="shareId" />
+		<result column="image" property="image" />
+		<result column="type" property="type" />
+		<result column="createTime" property="createTime" />
+		<result column="removed" property="removed" />
+		<association javaType="com.haike.web.entity.Share" property="share">
+			<id column="id_s" property="id" />
+			<result column="menuId_s" property="menuId" />
+			<result column="link_s" property="link" />
+			<result column="imgUrl_s" property="imgUrl" />
+			<result column="title_s" property="title" />
+			<result column="content_s" property="content" />
+			<result column="userId_s" property="userId" />
+			<result column="createTime_s" property="createTime" />
+			<result column="updateTime_s" property="updateTime" />
+			<result column="removed_s" property="removed" />
+		</association>
+	</resultMap>
+
+</mapper>  

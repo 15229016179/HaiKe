@@ -79,7 +79,7 @@ public class BannerService {
 	}
 
 	/**
-	 * 查询所有反馈信息
+	 * 查询所有banner
 	 * 
 	 * @return
 	 */
